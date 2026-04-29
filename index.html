@@ -499,7 +499,7 @@ footer{
 /* Skill chip shimmer */
 .skill-chip{background-size:200% auto}
 @keyframes shimmer{to{background-position:-200% center}}
-.skill-chip:hover{animation:shimmer 1.5s linear infinite;background-image:linear-gradient(115deg,var(--navy-3) 0%,rgba(201,168,76,.12) 50%,var(--navy-3) 100%);background-size:200% auto}
+/* shimmer removed */
 
 /* Why item — left border grow */
 .why-item{border-left:2px solid transparent;padding-left:.8rem;transition:border-color .4s,padding-left .3s var(--ease),padding-top .3s}
@@ -836,6 +836,427 @@ footer{
   z-index: 10;
 }
 
+
+/* LOADING SCREEN */
+#loader{
+  position:fixed;inset:0;z-index:99999;
+  background:var(--navy);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1.5rem;
+  transition:opacity .6s var(--ease),visibility .6s;
+}
+#loader.hide{opacity:0;visibility:hidden}
+.loader-logo{
+  font-family:'Lora',Georgia,serif;
+  font-size:4rem;font-weight:400;color:var(--gold);
+  letter-spacing:.08em;
+  animation:loaderPulse 1.4s ease-in-out infinite;
+}
+@keyframes loaderPulse{0%,100%{opacity:.4;transform:scale(.96)}50%{opacity:1;transform:scale(1)}}
+.loader-bar{
+  width:160px;height:1px;background:rgba(201,168,76,.2);
+  position:relative;overflow:hidden;
+}
+.loader-bar::after{
+  content:'';position:absolute;left:-100%;top:0;height:100%;width:100%;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  animation:loaderSlide 1.2s ease-in-out infinite;
+}
+@keyframes loaderSlide{to{left:200%}}
+.loader-text{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-3)}
+
+/* THEME TOGGLE */
+#theme-toggle{
+  position:fixed;top:50%;right:1.5rem;transform:translateY(-50%);
+  z-index:600;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(10,22,40,.8);
+  border:1px solid rgba(201,168,76,.3);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1rem;
+  backdrop-filter:blur(8px);
+  transition:all .3s var(--ease);
+  box-shadow:0 2px 12px rgba(0,0,0,.3);
+}
+#theme-toggle:hover{border-color:var(--gold);transform:translateY(-50%) scale(1.15)}
+
+/* LIGHT MODE */
+body.light{
+  --navy:#f0ece2;
+  --navy-2:#e8e3d8;
+  --navy-3:#dfd9cc;
+  --navy-4:#d4cdc0;
+  --text-1:#1a2535;
+  --text-2:#2d3f52;
+  --text-3:#5a6e82;
+  --white:#0d1b2a;
+  --gold:#a8732a;
+  --gold-2:#c2893a;
+}
+
+/* Cards hover scale - fix chữ đen trên nền tối */
+body.light .svc-card,
+body.light .skill-chip,
+body.light .cert-card,
+body.light .proj-card,
+body.light .testi-card,
+body.light .blog-card,
+body.light .why-item,
+body.light .exp-item{
+  background:#e8e3d8;
+  color:var(--text-1);
+}
+body.light .svc-card:hover,
+body.light .skill-chip:hover,
+body.light .cert-card:hover,
+body.light .proj-card:hover,
+body.light .testi-card:hover,
+body.light .blog-card:hover{
+  background:#dfd9cc;
+  color:var(--text-1);
+}
+body.light .svc-title,
+body.light .skill-name,
+body.light .cert-name,
+body.light .proj-title,
+body.light .blog-title,
+body.light .testi-text,
+body.light .w-body h3,
+body.light .cert-card .cert-name,
+body.light h1,body.light h2,body.light h3{
+  color:#0d1b2a !important;
+}
+body.light .svc-desc,
+body.light .skill-desc,
+body.light .cert-org,
+body.light .proj-desc,
+body.light .proj-bullets li,
+body.light .blog-excerpt,
+body.light .w-body p,
+body.light .sc-desc{
+  color:#3d4f63 !important;
+}
+body.light .proj-tag,
+body.light .stag,
+body.light .hc-tag{
+  color:var(--gold);border-color:rgba(168,115,42,.35);
+}
+body.light .hero-card,
+body.light .about-card{background:#dfd9cc}
+body.light .hc-label{color:#5a6e82}
+body.light .hc-value{color:#1a2535}
+body.light .stat-num{color:var(--gold)}
+body.light .stat-label{color:#3d4f63}
+body.light .kpi-num{color:var(--gold)}
+body.light .kpi-lbl{color:#5a6e82}
+
+/* Fix Zalo tooltip ở light mode */
+body.light .zalo-tooltip{
+  background:rgba(240,236,226,0.96);
+  border-color:rgba(168,115,42,.3);
+  color:#1a2535;
+}
+
+/* Particles sáng hơn ở light mode */
+body.light #theme-toggle{background:rgba(240,235,225,.95);color:#0d1b2a}
+body.light .hero-grid-lines{opacity:.15}
+body.light #spotlight{mix-blend-mode:multiply;opacity:.4}
+body.light .about-bg-text{color:rgba(168,115,42,.05)}
+
+/* Nav light */
+body.light nav.scrolled{
+  background:rgba(240,236,226,0.95);
+  border-bottom-color:rgba(168,115,42,.2);
+}
+body.light .nav-links a{color:#3d4f63}
+body.light .nav-logo{color:var(--gold)}
+
+/* Hero text light */
+body.light h1{color:#0d1b2a !important}
+body.light .hero-sub{color:#3d4f63}
+body.light .hero-desc{color:#1a2535}
+body.light .eyebrow{color:var(--gold)}
+
+/* Blockquote */
+body.light .blockquote{color:var(--gold)}
+
+/* Contact */
+body.light .ci-value{color:#1a2535}
+body.light .ci-value a{color:var(--gold)}
+
+/* CTA strip */
+body.light #cta-strip{background:linear-gradient(135deg,#dfd9cc,#d4cdc0)}
+body.light .cta-strip-title{color:#0d1b2a}
+body.light .cta-strip-sub{color:#3d4f63}
+
+
+/* BACK TO TOP */
+#back-top{
+  position:fixed;bottom:7rem;right:1.5rem;z-index:9000;
+  width:44px;height:44px;
+  background:var(--gold);color:var(--navy);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;font-weight:700;
+  opacity:0;visibility:hidden;
+  transform:translateY(10px);
+  transition:all .35s var(--ease);
+  box-shadow:0 4px 15px rgba(201,168,76,.35);
+}
+#back-top:hover{transform:translateY(-3px) scale(1.1);box-shadow:0 8px 20px rgba(201,168,76,.5)}
+#back-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+
+/* ZALO WIDGET */
+#zalo-widget{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:9001;
+  display:flex;flex-direction:column;align-items:flex-end;gap:.8rem;
+}
+.zalo-btn{
+  width:50px;height:50px;border-radius:50%;
+  background:linear-gradient(135deg,#0068ff,#0044cc);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;text-decoration:none;
+  box-shadow:0 4px 16px rgba(0,104,255,.4);
+  transition:transform .3s var(--ease),box-shadow .3s;
+  animation:zaloFloat 3s ease-in-out infinite;
+}
+@keyframes zaloFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.zalo-btn:hover{transform:scale(1.15)!important;box-shadow:0 8px 24px rgba(0,104,255,.55)}
+.zalo-btn svg{width:28px;height:28px;fill:white}
+.zalo-tooltip{
+  background:rgba(10,22,40,.95);backdrop-filter:blur(8px);
+  border:1px solid rgba(201,168,76,.2);
+  padding:.5rem 1rem;
+  font-size:.78rem;color:var(--text-1);
+  white-space:nowrap;
+  opacity:0;transform:translateX(8px);
+  transition:all .3s var(--ease);
+  pointer-events:none;
+}
+#zalo-widget:hover .zalo-tooltip{opacity:1;transform:translateX(0)}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--navy-2);overflow:hidden}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-top:3.5rem;
+}
+.testi-card{
+  background:var(--navy);
+  border:1px solid rgba(201,168,76,.12);
+  padding:2.2rem;
+  position:relative;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1),border-color .3s;
+}
+.testi-card:hover{transform:scale(1.04);border-color:rgba(201,168,76,.35);z-index:2}
+.testi-quote-icon{
+  font-family:'Lora',Georgia,serif;
+  font-size:5rem;color:rgba(201,168,76,.12);
+  line-height:.8;margin-bottom:1rem;display:block;
+}
+.testi-text{
+  font-size:.92rem;color:var(--text-1);line-height:1.8;
+  font-style:italic;margin-bottom:1.5rem;
+}
+.testi-author{display:flex;align-items:center;gap:1rem}
+.testi-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--navy-4));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lora',Georgia,serif;font-size:1rem;color:var(--navy);font-weight:600;
+  flex-shrink:0;
+}
+.testi-name{font-size:.88rem;color:var(--white);font-weight:400}
+.testi-role{font-size:.75rem;color:var(--text-3);margin-top:.15rem}
+.testi-stars{color:var(--gold);font-size:.8rem;letter-spacing:.1em;margin-bottom:.8rem}
+
+/* CTA STRIP */
+#cta-strip{
+  background:linear-gradient(135deg,var(--navy-3) 0%,var(--navy-4) 100%);
+  border-top:1px solid rgba(201,168,76,.2);
+  border-bottom:1px solid rgba(201,168,76,.2);
+  padding:3.5rem 4rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+#cta-strip::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 100% at 50% 50%,rgba(201,168,76,.06),transparent);
+  pointer-events:none;
+}
+.cta-strip-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.cta-strip-tag{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.cta-strip-title{
+  font-family:'Lora',Georgia,serif;
+  font-size:clamp(1.5rem,3vw,2.2rem);color:var(--white);font-weight:400;
+  margin-bottom:1rem;line-height:1.3;
+}
+.cta-strip-title em{font-style:italic;color:var(--gold)}
+.cta-strip-sub{font-size:.9rem;color:var(--text-2);margin-bottom:2rem}
+
+/* SKILL PROGRESS */
+#skillbars{overflow:hidden}
+.skillbars-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem 5rem;margin-top:3.5rem}
+.sb-item{margin-bottom:1.2rem}
+.sb-header{display:flex;justify-content:space-between;margin-bottom:.5rem}
+.sb-name{font-size:.9rem;color:var(--text-1)}
+.sb-pct{font-size:.85rem;color:var(--gold);font-family:'Lora',Georgia,serif}
+.sb-track{height:3px;background:rgba(201,168,76,.12);position:relative;overflow:hidden}
+.sb-fill{
+  height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-2));
+  width:0%;transition:width 1.4s cubic-bezier(.25,.46,.45,.94);
+  position:relative;
+}
+.sb-fill::after{
+  content:'';position:absolute;right:0;top:-3px;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold-3);
+  box-shadow:0 0 8px var(--gold);
+  transition:opacity .3s;
+}
+
+/* BLOG / INSIGHTS */
+#blog{background:var(--navy-2)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.blog-card{
+  background:var(--navy);
+  border:1px solid rgba(201,168,76,.1);
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1),border-color .3s;
+  cursor:pointer;
+}
+.blog-card:hover{transform:scale(1.04);border-color:rgba(201,168,76,.35);z-index:2}
+.blog-thumb{
+  height:140px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;
+  border-bottom:1px solid rgba(201,168,76,.08);
+}
+.blog-body{padding:1.6rem}
+.blog-cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.blog-title{font-family:'Lora',Georgia,serif;font-size:1.05rem;color:var(--white);line-height:1.4;margin-bottom:.7rem;font-weight:400}
+.blog-excerpt{font-size:.8rem;color:var(--text-3);line-height:1.65;margin-bottom:1rem}
+.blog-meta{font-size:.72rem;color:var(--text-3);display:flex;gap:.8rem;align-items:center}
+.blog-dot{width:3px;height:3px;border-radius:50%;background:var(--text-3)}
+
+/* FORM */
+#contact-form{max-width:540px;margin:0 auto 3rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.form-group label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.form-input,.form-select,.form-textarea{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(201,168,76,.18);
+  padding:.8rem 1rem;
+  color:var(--text-1);font-family:'Be Vietnam Pro',sans-serif;font-size:.88rem;
+  outline:none;
+  transition:border-color .3s,background .3s;
+  width:100%;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  border-color:var(--gold);background:rgba(201,168,76,.04);
+}
+.form-textarea{resize:vertical;min-height:100px}
+.form-select option{background:var(--navy);color:var(--text-1)}
+.form-submit{
+  width:100%;padding:1rem;
+  background:var(--gold);color:var(--navy);
+  border:none;cursor:pointer;
+  font-family:'Be Vietnam Pro',sans-serif;
+  font-size:.85rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  transition:all .35s cubic-bezier(.34,1.56,.64,1);
+}
+.form-submit:hover{transform:scale(1.04);background:var(--gold-2)}
+.form-note{font-size:.75rem;color:var(--text-3);text-align:center;margin-top:.8rem}
+
+
+/* ===== DARK MODE HOVER - rõ ràng ===== */
+.skill-chip:hover{
+  background:var(--navy-4) !important;
+  border-color:var(--gold) !important;
+  transform:scale(1.2) !important;
+}
+.skill-chip:hover .sc-name{ color:var(--white) !important }
+.skill-chip:hover .sc-desc{ color:var(--text-1) !important }
+.skill-chip:hover .sc-icon{ filter:brightness(1.3) }
+
+/* ===== LIGHT MODE - tất cả card ===== */
+body.light .skill-chip{
+  background:#dfd9cc !important;
+  border-color:rgba(168,115,42,.25) !important;
+}
+body.light .skill-chip:hover{
+  background:#c9a35a !important;
+  border-color:var(--gold) !important;
+  transform:scale(1.2) !important;
+}
+body.light .skill-chip:hover .sc-name{ color:#fff !important }
+body.light .skill-chip:hover .sc-desc{ color:rgba(255,255,255,.85) !important }
+
+body.light .svc-card{
+  background:#e2ddd2 !important;
+  border-color:rgba(168,115,42,.2) !important;
+}
+body.light .svc-card:hover{
+  background:#b8872e !important;
+  border-color:var(--gold) !important;
+}
+body.light .svc-card:hover .svc-title{ color:#fff !important }
+body.light .svc-card:hover .svc-desc{ color:rgba(255,255,255,.85) !important }
+body.light .svc-card:hover .proj-bullets li{ color:rgba(255,255,255,.85) !important }
+body.light .svc-card:hover .stag{ color:#fff !important; border-color:rgba(255,255,255,.4) !important }
+
+body.light .cert-card{
+  background:#e2ddd2 !important;
+  border-color:rgba(168,115,42,.2) !important;
+}
+body.light .cert-card:hover{
+  background:#b8872e !important;
+  border-color:var(--gold) !important;
+}
+body.light .cert-card:hover .cert-name{ color:#fff !important }
+body.light .cert-card:hover .cert-org{ color:rgba(255,255,255,.8) !important }
+
+body.light .proj-card:hover{
+  background:#b8872e !important;
+  border-color:var(--gold) !important;
+}
+body.light .proj-card:hover .proj-title{ color:#fff !important }
+body.light .proj-card:hover .proj-bullets li{ color:rgba(255,255,255,.85) !important }
+body.light .proj-card:hover .proj-tag{ color:#fff !important; border-color:rgba(255,255,255,.35) !important }
+body.light .proj-card:hover .proj-result-num{ color:#fff !important }
+body.light .proj-card:hover .proj-result-label{ color:rgba(255,255,255,.8) !important }
+
+body.light .testi-card:hover{
+  background:#b8872e !important;
+}
+body.light .testi-card:hover .testi-text{ color:#fff !important }
+body.light .testi-card:hover .testi-name{ color:#fff !important }
+body.light .testi-card:hover .testi-role{ color:rgba(255,255,255,.8) !important }
+
+body.light .blog-card:hover{
+  background:#b8872e !important;
+}
+body.light .blog-card:hover .blog-title{ color:#fff !important }
+body.light .blog-card:hover .blog-excerpt{ color:rgba(255,255,255,.8) !important }
+body.light .blog-card:hover .blog-cat{ color:#fff !important; opacity:.8 }
+
+/* metal-lit override cho light mode */
+body.light .metal-lit{
+  background-image: radial-gradient(
+    circle at var(--mx,50%) var(--my,50%),
+    rgba(168,115,42, calc(var(--mi,0) * 0.18)) 0%,
+    transparent 70%
+  ) !important;
+  border-color: rgba(168,115,42, calc(0.2 + var(--mi,0) * 0.6)) !important;
+}
+body.light .svc-card.metal-lit, body.light .skill-chip.metal-lit{
+  background-image: radial-gradient(
+    circle at var(--mx,50%) var(--my,50%),
+    rgba(168,115,42, calc(var(--mi,0) * 0.15)) 0%,
+    rgba(220,214,204,1) 65%
+  ) !important;
+}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--navy)}
@@ -871,6 +1292,11 @@ footer{
 
 <!-- Cursor -->
 <div id="progress"></div>
+<div id="loader">
+  <div class="loader-logo">NTV</div>
+  <div class="loader-bar"></div>
+  <div class="loader-text">Đang tải...</div>
+</div>
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <canvas id="particles"></canvas>
@@ -882,6 +1308,8 @@ footer{
   <ul class="nav-links">
     <li><a href="#about">Về tôi</a></li>
     <li><a href="#services">Dịch vụ</a></li>
+    <li><a href="#testimonials">Đánh giá</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#experience">Chứng chỉ</a></li>
     <li><a href="#projects">Dự án</a></li>
     <li><a href="#why">Tại sao tôi</a></li>
@@ -1054,6 +1482,68 @@ footer{
   </div>
 </section>
 
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="s-inner">
+    <div class="fade-up">
+      <div class="s-tag">Khách hàng nói gì</div>
+      <h2>Những người đã<br><em>tin tưởng và hợp tác</em></h2>
+    </div>
+    <div class="testi-grid stagger">
+      <div class="testi-card">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Anh Văn đã giúp chúng tôi xây dựng lại toàn bộ hệ thống tính lương từ đầu. Trước đây mất 3 ngày mỗi tháng, giờ chỉ cần 3 giờ. Sai sót gần như bằng 0, kế toán và nhân sự đều nhẹ nhõm hẳn.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">TH</div>
+          <div>
+            <div class="testi-name">Nguyễn Thị Hoa</div>
+            <div class="testi-role">Giám đốc Nhân sự · Doanh nghiệp sản xuất, Phú Thọ</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Khóa học Excel + AI của anh Văn thay đổi hoàn toàn cách tôi làm việc. Trước đó tôi chỉ biết dùng hàm cơ bản, giờ tôi tự xây được dashboard và tự động hóa báo cáo tuần trong 30 phút.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MT</div>
+          <div>
+            <div class="testi-name">Trần Minh Tuấn</div>
+            <div class="testi-role">Trưởng phòng Kinh doanh · Công ty dịch vụ</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Hệ thống vận hành anh Văn thiết kế cho trung tâm chúng tôi rất bài bản. Từ quy trình tuyển sinh đến chăm sóc học viên đều có tài liệu rõ ràng. Nhân viên mới vào là có thể tự vận hành ngay.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">HL</div>
+          <div>
+            <div class="testi-name">Lê Thị Hằng</div>
+            <div class="testi-role">Giám đốc · Trung tâm tiếng Anh, Việt Trì</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div id="cta-strip">
+  <div class="cta-strip-inner fade-up">
+    <div class="cta-strip-tag">Bắt đầu ngay hôm nay</div>
+    <div class="cta-strip-title">Bạn đang gặp vấn đề<br><em>tương tự?</em></div>
+    <p class="cta-strip-sub">Dù là hệ thống lương rối rắm, Excel thủ công tốn thời gian hay quy trình chạy bằng trí nhớ — hãy nói với tôi, chúng ta sẽ tìm ra giải pháp.</p>
+    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
+      <a href="#contact" class="btn-gold"><span>Nói chuyện với tôi</span> <span>→</span></a>
+      <a href="#services" class="btn-outline">Xem dịch vụ</a>
+    </div>
+  </div>
+</div>
+
 <!-- WHY ME -->
 <section id="why">
   <div class="s-inner">
@@ -1095,6 +1585,46 @@ footer{
           </div>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- BLOG / INSIGHTS -->
+<section id="blog">
+  <div class="s-inner">
+    <div class="fade-up">
+      <div class="s-tag">Góc chia sẻ</div>
+      <h2>Kiến thức &<br><em>Góc nhìn thực chiến</em></h2>
+    </div>
+    <div class="blog-grid stagger">
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(30,48,84,.6))">📊</div>
+        <div class="blog-body">
+          <div class="blog-cat">Excel & Dữ liệu</div>
+          <div class="blog-title">5 lý do bảng lương của bạn vẫn sai dù đã kiểm tra kỹ</div>
+          <p class="blog-excerpt">Phần lớn sai sót không đến từ tính toán — mà đến từ cách tổ chức dữ liệu đầu vào. Đây là những lỗi phổ biến nhất và cách khắc phục...</p>
+          <div class="blog-meta"><span>HR System</span><span class="blog-dot"></span><span>5 phút đọc</span></div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(30,48,84,.6))">🤖</div>
+        <div class="blog-body">
+          <div class="blog-cat">AI & Năng suất</div>
+          <div class="blog-title">Cách tôi dùng AI để làm báo cáo tuần trong 20 phút thay vì 2 giờ</div>
+          <p class="blog-excerpt">Không phải AI làm thay bạn — mà AI giúp bạn nghĩ nhanh hơn, cấu trúc rõ hơn và trình bày thuyết phục hơn. Đây là quy trình thực tế...</p>
+          <div class="blog-meta"><span>AI Tools</span><span class="blog-dot"></span><span>7 phút đọc</span></div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(30,48,84,.6))">🏢</div>
+        <div class="blog-body">
+          <div class="blog-cat">Vận hành</div>
+          <div class="blog-title">Doanh nghiệp 50 người vẫn vận hành bằng trí nhớ — và cái giá phải trả</div>
+          <p class="blog-excerpt">Khi người biết việc nghỉ, cả quy trình tê liệt. Đây là dấu hiệu nhận biết và 3 bước đầu tiên để thoát khỏi cái bẫy này...</p>
+          <div class="blog-meta"><span>Ops & Process</span><span class="blog-dot"></span><span>6 phút đọc</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1329,6 +1859,7 @@ footer{
         Tôi luôn sẵn sàng hồi đáp mọi câu hỏi, mọi nhu cầu — dù lớn hay nhỏ, dù bạn đã rõ ràng hay còn đang mơ hồ.
       </p>
       <p class="contact-sub">Phản hồi trong vòng 24 giờ. Không cần chuẩn bị gì — chỉ cần nhắn tin.</p>
+
       <div class="contact-ctas">
         <a href="mailto:nguyenthanhvan184@gmail.com" class="btn-gold"><span>Gửi email</span></a>
         <a href="https://zalo.me/0968161343" class="btn-outline">Nhắn Zalo</a>
@@ -1362,31 +1893,49 @@ footer{
   </div>
 </footer>
 
+
+<!-- THEME TOGGLE -->
+<button id="theme-toggle" title="Đổi theme">☀️</button>
+
+<!-- BACK TO TOP -->
+<button id="back-top" title="Lên đầu trang">↑</button>
+
+<!-- ZALO WIDGET -->
+<div id="zalo-widget">
+  <div class="zalo-tooltip">Nhắn Zalo ngay</div>
+  <a href="https://zalo.me/0968161343" target="_blank" rel="noopener" class="zalo-btn" title="Chat Zalo" style="pointer-events:all">
+    <span style="font-size:1.5rem;line-height:1">💬</span>
+  </a>
+</div>
+
 <script>
 /* CUSTOM CURSOR */
 const cur = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
+if(!cur||!ring){ console.warn('cursor missing'); }
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cur.style.left=mx+'px';cur.style.top=my+'px';
-});
-function animRing(){
-  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
-  ring.style.left=rx+'px';ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
+if(cur && ring){
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+  });
+  function animRing(){
+    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  document.querySelectorAll('a,button,.svc-card,.skill-chip,.why-item').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+      ring.style.width='56px';ring.style.height='56px';
+      ring.style.borderColor='rgba(201,168,76,.8)';
+    });
+    el.addEventListener('mouseleave',()=>{
+      ring.style.width='36px';ring.style.height='36px';
+      ring.style.borderColor='rgba(201,168,76,.5)';
+    });
+  });
 }
-animRing();
-document.querySelectorAll('a,button,.svc-card,.skill-chip,.why-item').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    ring.style.width='56px';ring.style.height='56px';
-    ring.style.borderColor='rgba(201,168,76,.8)';
-  });
-  el.addEventListener('mouseleave',()=>{
-    ring.style.width='36px';ring.style.height='36px';
-    ring.style.borderColor='rgba(201,168,76,.5)';
-  });
-});
 
 /* GOLDEN DUST PARTICLES */
 const canvas = document.getElementById('particles');
@@ -1401,13 +1950,13 @@ resize();
 window.addEventListener('resize', () => { resize(); initDust(); });
 
 /* Màu tone gold/amber */
-const COLORS = [
-  [201,168,76],   /* gold chính */
-  [226,196,122],  /* gold sáng */
-  [240,216,152],  /* gold nhạt */
-  [180,138,50],   /* gold sẫm */
-  [210,180,100],  /* warm amber */
-];
+const COLORS_DARK  = [[201,168,76],[226,196,122],[240,216,152],[180,138,50],[210,180,100]];
+const COLORS_LIGHT = [[168,115,42],[140,95,30],[190,140,70],[120,80,20],[160,120,55]];
+let COLORS = COLORS_DARK;
+// Cập nhật màu theo theme
+function updateParticleColors(){
+  COLORS = document.body.classList.contains('light') ? COLORS_LIGHT : COLORS_DARK;
+}
 
 function randColor() {
   return COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -1549,6 +2098,76 @@ function drawDust() {
 }
 drawDust();
 
+
+/* ============================================
+   LOADER
+============================================ */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const ldr=document.getElementById('loader'); if(ldr) ldr.classList.add('hide');
+  }, 1200);
+});
+
+/* ============================================
+   THEME TOGGLE
+============================================ */
+const themeBtn = document.getElementById('theme-toggle');
+let isLight = false;
+if(themeBtn){
+  themeBtn.addEventListener('click', () => {
+    isLight = !isLight;
+    document.body.classList.toggle('light', isLight);
+    themeBtn.textContent = isLight ? '🌙' : '☀️';
+    themeBtn.style.background = isLight ? 'rgba(240,235,225,0.95)' : 'rgba(10,22,40,0.8)';
+    if(typeof updateParticleColors === 'function') updateParticleColors();
+    initDust();
+  });
+} else {
+  console.warn('[theme] toggle button not found');
+}
+
+/* ============================================
+   BACK TO TOP
+============================================ */
+const btt = document.getElementById('back-top');
+if(btt){
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('show', window.scrollY > 300);
+  });
+  btt.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+  // Force check on load
+  if(window.scrollY > 300) btt.classList.add('show');
+} else {
+  console.warn('[btt] back-top not found');
+}
+
+/* ============================================
+   SKILL PROGRESS BARS
+============================================ */
+const sbObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.querySelectorAll('.sb-fill').forEach(bar => {
+      const w = bar.dataset.width;
+      setTimeout(() => { bar.style.width = w + '%'; }, 200);
+    });
+    e.target.querySelectorAll('.sb-pct').forEach(el => {
+      const target = +el.dataset.pct;
+      let cur = 0;
+      const step = () => {
+        cur = Math.min(cur + 2, target);
+        el.textContent = cur + '%';
+        if (cur < target) requestAnimationFrame(step);
+      };
+      setTimeout(step, 200);
+    });
+    sbObs.unobserve(e.target);
+  });
+}, {threshold: 0.3});
+document.querySelectorAll('#skillbars').forEach(el => sbObs.observe(el));
+
+
+
 /* SMOOTH SCROLL FOR NAV LINKS */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
@@ -1671,6 +2290,7 @@ if(eyebrow) {
    CURSOR SPOTLIGHT + METALLIC SHINE EFFECT
    ============================================ */
 const spot = document.getElementById('spotlight');
+if(spot){
 const sctx = spot.getContext('2d');
 let sW, sH, mouseX = -999, mouseY = -999;
 let targetX = -999, targetY = -999;
@@ -1782,7 +2402,9 @@ function drawSpotlight() {
   requestAnimationFrame(drawSpotlight);
 }
 drawSpotlight();
+} // end if(spot)
 
 </script>
+
 </body>
 </html>
