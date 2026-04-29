@@ -284,7 +284,7 @@ h2 em{font-style:italic;color:var(--gold)}
   font-size:4rem;color:rgba(201,168,76,.2);line-height:1;
 }
 
-.about-skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;overflow:visible}
 .skill-chip{
   background:var(--navy-3);
   border:1px solid rgba(201,168,76,.12);
@@ -309,6 +309,7 @@ h2 em{font-style:italic;color:var(--gold)}
   display:grid;grid-template-columns:repeat(2,1fr);
   gap:1.5px;background:rgba(201,168,76,.1);
   margin-top:3rem;
+  overflow:visible;
 }
 .svc-card{
   background:var(--navy);padding:2.8rem 2.4rem;
@@ -786,9 +787,53 @@ footer{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:1.2rem;
+  overflow:visible;
 }
 @media(max-width:900px){
   .certs-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+
+/* ===== SCALE ON HOVER 120% ===== */
+
+/* Buttons: Kết nối ngay, Xem dịch vụ */
+.btn-gold,
+.btn-outline {
+  transition: all .35s cubic-bezier(.34,1.56,.64,1), transform .35s cubic-bezier(.34,1.56,.64,1) !important;
+}
+.btn-gold:hover,
+.btn-outline:hover {
+  transform: scale(1.2) !important;
+}
+
+/* Chuyên môn */
+.skill-chip {
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1),
+              border-color .3s, background .3s !important;
+}
+.skill-chip:hover {
+  transform: scale(1.2) !important;
+  z-index: 10;
+}
+
+/* Dịch vụ */
+.svc-card {
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1),
+              background .3s, border-color .3s !important;
+}
+.svc-card:hover {
+  transform: scale(1.2) !important;
+  z-index: 10;
+}
+
+/* Bằng cấp & Chứng chỉ */
+.cert-card {
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1),
+              border-color .3s !important;
+}
+.cert-card:hover {
+  transform: scale(1.2) !important;
+  z-index: 10;
 }
 
 /* SCROLLBAR */
@@ -804,7 +849,10 @@ footer{
   section{padding:5rem 1.5rem}
   #hero{padding:6rem 1.5rem 4rem}
   .hero-content{grid-template-columns:1fr;gap:3rem}
-  .hero-right{display:none}
+  .hero-right{display:flex;justify-content:center;margin-top:2.5rem}
+  .avatar-wrap{width:280px;height:280px}
+  .avatar-img{width:230px;height:230px}
+
   .stats-bar{padding:2rem 1.5rem}
   .about-layout{grid-template-columns:1fr;gap:3rem}
   .about-skills-grid{grid-template-columns:1fr 1fr}
