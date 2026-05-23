@@ -1,0 +1,15 @@
+﻿:root{
+  --navy:#0a1628;
+  --navy-2:#0f1e35;
+  --navy-3:#152642;
+  --navy-4:#1c3054;
+  --gold:#c9a84c;
+  --gold-2:#e2c47a;
+  --gold-3:#f0d898;
+  --gold-dim:rgba(201,168,76,0.15);
+  --text-1:#f2ead6;
+  --text-2:#a8bbd0;
+  --text-3:#5e7a96;
+  --white:#ffffff;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+}

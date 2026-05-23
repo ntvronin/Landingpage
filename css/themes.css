@@ -1,0 +1,121 @@
+﻿/* LIGHT MODE */
+body.light{
+  --navy:#f0ece2;
+  --navy-2:#e8e3d8;
+  --navy-3:#dfd9cc;
+  --navy-4:#d4cdc0;
+  --text-1:#1a2535;
+  --text-2:#2d3f52;
+  --text-3:#5a6e82;
+  --white:#0d1b2a;
+  --gold:#a8732a;
+  --gold-2:#c2893a;
+}
+
+/* Cards hover scale - fix chữ đen trên nền tối */
+body.light .svc-card,
+body.light .skill-chip,
+body.light .cert-card,
+body.light .proj-card,
+body.light .testi-card,
+body.light .blog-card,
+body.light .why-item{
+  background:#e8e3d8;
+  color:var(--text-1);
+}
+body.light .svc-card:hover,
+body.light .skill-chip:hover,
+body.light .cert-card:hover,
+body.light .proj-card:hover,
+body.light .testi-card:hover,
+body.light .blog-card:hover{
+  background:#dfd9cc;
+  color:var(--text-1);
+}
+body.light .svc-title,
+body.light .skill-name,
+body.light .cert-name,
+body.light .proj-title,
+body.light .blog-title,
+body.light .testi-text,
+body.light .w-body h3,
+body.light .cert-card .cert-name,
+body.light h1,body.light h2,body.light h3{
+  color:#0d1b2a;
+}
+body.light .svc-desc,
+body.light .skill-desc,
+body.light .cert-org,
+body.light .proj-desc,
+body.light .proj-bullets li,
+body.light .blog-excerpt,
+body.light .w-body p,
+body.light .sc-desc{
+  color:#3d4f63;
+}
+body.light .proj-tag,
+body.light .stag{
+  color:var(--gold);border-color:rgba(168,115,42,.35);
+}
+body.light .stat-num{color:var(--gold)}
+body.light .stat-label{color:#3d4f63}
+
+/* Fix Zalo tooltip ở light mode */
+body.light .zalo-tooltip{
+  background:rgba(240,236,226,0.96);
+  border-color:rgba(168,115,42,.3);
+  color:#1a2535;
+}
+
+/* Particles sáng hơn ở light mode */
+body.light #theme-toggle{background:rgba(240,235,225,.95);color:#0d1b2a}
+body.light .hero-grid-lines{opacity:.15}
+body.light #spotlight{mix-blend-mode:multiply;opacity:.4}
+body.light .about-bg-text{color:rgba(168,115,42,.05)}
+
+/* Nav light */
+body.light nav.scrolled{
+  background:rgba(240,236,226,0.95);
+  border-bottom-color:rgba(168,115,42,.2);
+}
+body.light .nav-links a{color:#3d4f63}
+body.light .nav-logo{color:var(--gold)}
+
+/* Hero text light */
+body.light h1{color:#0d1b2a}
+body.light .hero-sub{color:#3d4f63}
+body.light .hero-desc{color:#1a2535}
+body.light .eyebrow{color:var(--gold)}
+
+/* Blockquote */
+body.light .blockquote{color:var(--gold)}
+
+/* Contact */
+body.light .ci-value{color:#1a2535}
+body.light .ci-value a{color:var(--gold)}
+
+/* CTA strip */
+body.light #cta-strip{background:linear-gradient(135deg,#dfd9cc,#d4cdc0)}
+body.light .cta-strip-title{color:#0d1b2a}
+body.light .cta-strip-sub{color:#3d4f63}
+
+
+/* Light mode — mobile nav */
+body.light .nav-mobile{background:rgba(240,236,226,0.97)}
+body.light .nav-mobile-link{color:var(--text-2)}
+body.light .nav-mobile-link:hover{color:var(--gold)}
+body.light .nav-hamburger span{background:var(--gold)}
+
+/* Light mode — hero name gradient */
+body.light h1 .gold-text{
+  background:linear-gradient(90deg,var(--gold) 0%,#d4953e 40%,var(--gold) 60%,#c2893a 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* Light mode — blog thumbs */
+body.light .blog-thumb--excel{background:linear-gradient(135deg,rgba(76,168,201,.2),rgba(200,225,240,.5))}
+body.light .blog-thumb--ai{background:linear-gradient(135deg,rgba(150,100,220,.2),rgba(220,210,240,.5))}
+body.light .blog-thumb--ops{background:linear-gradient(135deg,rgba(201,168,76,.2),rgba(245,235,200,.5))}

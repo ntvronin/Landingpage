@@ -1,0 +1,162 @@
+﻿@media(max-width:900px){
+  .certs-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  nav.scrolled{padding:.9rem 1.5rem}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  section{padding:5rem 1.5rem}
+  #hero{padding:6rem 1.5rem 4rem}
+  .hero-content{grid-template-columns:1fr;gap:3rem}
+  .hero-right{display:flex;justify-content:center;margin-top:2.5rem}
+  .avatar-wrap{width:280px;height:280px}
+  .avatar-img{width:230px;height:230px}
+
+  .stats-bar{padding:2rem 1.5rem}
+  .about-layout{grid-template-columns:1fr;gap:3rem}
+  .about-skills-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
+  .why-layout{grid-template-columns:1fr;gap:2.5rem}
+  .why-sticky{position:static}
+  footer{padding:1.5rem}
+}
+
+/* ================================================
+   MOBILE RESPONSIVE — toàn diện
+   ================================================ */
+@media(max-width:600px){
+
+  /* BASE */
+  body{ font-size:15px; cursor:auto }
+  #cursor,#cursor-ring{ display:none }
+  section{ padding:3.5rem 1.2rem }
+  .s-inner{ padding:0 }
+
+  /* NAV */
+  nav{ padding:.9rem 1.2rem }
+  nav.scrolled{ padding:.8rem 1.2rem }
+  .nav-links{ display:none }
+  .nav-logo{ font-size:1.1rem }
+
+  /* HERO */
+  #hero{ padding:5.5rem 1.2rem 3rem; min-height:auto }
+  .hero-content{ grid-template-columns:1fr; gap:2rem }
+  h1{ font-size:2.6rem; line-height:1.1 }
+  .hero-sub{ font-size:.78rem }
+  .hero-desc{ font-size:.95rem; margin-bottom:2rem }
+  .hero-actions{ flex-direction:column; gap:.8rem; align-items:flex-start }
+  .btn-gold,.btn-outline{ width:100%; justify-content:center; padding:.85rem 1.5rem }
+  .hero-right{ display:flex; justify-content:center; margin-top:1.5rem }
+  .avatar-wrap{ width:220px; height:220px }
+  .avatar-img{ width:180px; height:180px }
+  .hero-orb-1,.hero-orb-2,.hero-grid-lines,.hero-line{ display:none }
+
+  /* STATS */
+  .stats-bar{ padding:1.5rem 1.2rem }
+  .stats-inner{ display:grid; grid-template-columns:1fr 1fr; gap:1rem }
+  .stat-item::after{ display:none }
+  .stat-num{ font-size:2rem }
+  .stat-label{ font-size:.7rem }
+
+  /* SECTIONS COMMON */
+  h2{ font-size:1.8rem }
+  .s-tag{ font-size:.68rem }
+
+  /* ABOUT */
+  .about-layout{ grid-template-columns:1fr; gap:2rem }
+  .about-skills-grid{ grid-template-columns:1fr 1fr; gap:.8rem }
+  .skill-chip{ padding:.9rem 1rem }
+  .sc-name{ font-size:.82rem }
+  .sc-desc{ font-size:.72rem }
+  .about-bg-text{ display:none }
+  .blockquote{ font-size:1.1rem; padding:.8rem 0 .8rem 1.2rem }
+
+  /* SERVICES */
+  .services-grid{ grid-template-columns:1fr; gap:1px }
+  .svc-card{ padding:1.8rem 1.5rem }
+  .svc-title{ font-size:1.2rem }
+  .svc-desc{ font-size:.82rem }
+
+  /* TESTIMONIALS */
+  .testi-grid{ grid-template-columns:1fr; gap:1rem }
+  .testi-card{ padding:1.6rem }
+  .testi-text{ font-size:.85rem }
+
+  /* CTA STRIP */
+  #cta-strip{ padding:2.5rem 1.2rem }
+  .cta-strip-title{ font-size:1.4rem }
+  .cta-strip-inner>div{ flex-direction:column; align-items:center }
+  .cta-strip-inner .btn-gold,
+  .cta-strip-inner .btn-outline{ width:100%; justify-content:center }
+
+  /* WHY */
+  .why-layout{ grid-template-columns:1fr; gap:1.5rem }
+  .why-sticky{ position:static }
+  .why-item{ padding:1.2rem 0 }
+  .w-num{ font-size:1.4rem; width:1.8rem }
+  .w-body h3{ font-size:1.1rem }
+
+  /* PROJECTS */
+  .proj-grid{ grid-template-columns:1fr; gap:1rem }
+  .proj-card{ padding:1.8rem 1.5rem }
+  .proj-card.full{ grid-column:auto }
+  .proj-title{ font-size:1.1rem }
+  .proj-results{ gap:.6rem }
+  .proj-result{ padding:.4rem .8rem }
+  .proj-result-num{ font-size:.95rem }
+
+  /* CERTS */
+  .certs-grid{ grid-template-columns:1fr 1fr; gap:.8rem }
+  .cert-card{ padding:1.2rem; flex-direction:column; align-items:flex-start; gap:.6rem }
+  .cert-icon{ width:36px; height:36px; font-size:1rem }
+  .cert-name{ font-size:.85rem }
+  .cert-org{ font-size:.72rem }
+
+  /* BLOG */
+  .blog-grid{ grid-template-columns:1fr; gap:1rem }
+  .blog-thumb{ height:100px; font-size:2rem }
+  .blog-title{ font-size:.95rem }
+  .blog-excerpt{ font-size:.78rem }
+
+  /* CONTACT */
+  .contact-info{ gap:1.5rem }
+  .contact-ctas{ flex-direction:column; align-items:center }
+  .contact-ctas .btn-gold,
+  .contact-ctas .btn-outline{ width:100%; justify-content:center }
+
+  /* FOOTER */
+  footer{ flex-direction:column; align-items:flex-start; gap:.8rem; padding:1.2rem }
+  .foot-links{ flex-wrap:wrap; gap:1rem }
+
+  /* FIXED BUTTONS — tránh chồng nhau */
+  #theme-toggle{ top:auto; bottom:14rem; right:1rem; transform:none }
+  #theme-toggle:hover{ transform:scale(1.1) }
+  #back-top{ bottom:8rem; right:1rem; width:40px; height:40px }
+  #zalo-widget{ bottom:1rem; right:1rem }
+  .zalo-btn{ width:44px; height:44px }
+
+  /* Scale down trên mobile — 1.08 thay vì 1.2 để không tràn */
+  .btn-gold:hover,.btn-outline:hover,
+  .skill-chip:hover,.svc-card:hover,
+  .cert-card:hover,.proj-card:hover,
+  .testi-card:hover,.blog-card:hover{
+    transform:scale(1.04);
+  }
+
+  /* Ẩn hiệu ứng nặng */
+  #spotlight{ display:none }
+  .svc-card{ transform-style:flat }
+}
+
+/* Tablet 601-900 */
+@media(min-width:601px) and (max-width:900px){
+  .testi-grid{ grid-template-columns:1fr 1fr }
+  .blog-grid{ grid-template-columns:1fr 1fr }
+  .proj-grid{ grid-template-columns:1fr }
+  .proj-card.full{ grid-column:auto }
+  .certs-grid{ grid-template-columns:repeat(2,1fr) }
+  h1{ font-size:3.2rem }
+}
+

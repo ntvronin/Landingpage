@@ -1,0 +1,74 @@
+﻿/* REVEAL ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(32px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.fade-up.on{opacity:1;transform:translateY(0)}
+.fade-left{opacity:0;transform:translateX(30px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.fade-left.on{opacity:1;transform:translateX(0)}
+.stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.stagger.on>*{opacity:1;transform:translateY(0)}
+
+/* HIGHLIGHT LINE */
+.gold-line{display:inline-block;position:relative}
+.gold-line::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .6s .3s var(--ease);
+}
+.gold-line.on::after{transform:scaleX(1)}
+
+
+/* === ADVANCED SCROLL EFFECTS === */
+.parallax-slow{will-change:transform}
+.parallax-fast{will-change:transform}
+
+/* Slide từ trái/phải */
+.slide-left{opacity:0;transform:translateX(-50px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.slide-right{opacity:0;transform:translateX(50px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.slide-left.on,.slide-right.on{opacity:1;transform:translateX(0)}
+
+/* Scale in */
+.scale-in{opacity:0;transform:scale(.88);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.scale-in.on{opacity:1;transform:scale(1)}
+
+/* Clip wipe — chữ heading lướt vào */
+.clip-wipe{overflow:hidden;display:block}
+.clip-wipe span{display:block;transform:translateY(110%);transition:transform .85s var(--ease)}
+.clip-wipe.on span{transform:translateY(0)}
+
+/* Gold underline grow */
+.u-grow{background-image:linear-gradient(var(--gold),var(--gold));background-repeat:no-repeat;background-position:left bottom;background-size:0 1px;transition:background-size .8s .3s var(--ease);padding-bottom:2px}
+.u-grow.on{background-size:100% 1px}
+
+/* Số stat pulse */
+.stat-num{transition:transform .3s var(--ease)}
+.stat-item:hover .stat-num{transform:scale(1.12);color:var(--gold-2)}
+
+/* Service card — tilt 3D */
+.svc-card{transform-style:preserve-3d;transition:transform .3s var(--ease),background .3s}
+.svc-card:hover{transform:translateY(-6px) rotateX(2deg)}
+
+/* Skill chip shimmer */
+.skill-chip{background-size:200% auto}
+@keyframes shimmer{to{background-position:-200% center}}
+/* shimmer removed */
+
+/* Why item — left border grow */
+.why-item{border-left:2px solid transparent;padding-left:.8rem;transition:border-color .4s,padding-left .3s var(--ease),padding-top .3s}
+.why-item:hover{border-left-color:var(--gold)}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  /* Hiện ngay nội dung reveal — không chờ observer */
+  .fade-up,.fade-left,.slide-left,.slide-right,
+  .scale-in,.stagger>*,.clip-wipe span{
+    opacity:1;transform:none;
+  }
+  .u-grow{background-size:100% 1px}
+  .gold-line::after{transform:scaleX(1)}
+}
+

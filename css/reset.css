@@ -1,0 +1,19 @@
+﻿*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Be Vietnam Pro',system-ui,sans-serif;
+  background:var(--navy);
+  color:var(--text-1);
+  font-weight:300;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+/* Custom cursor chỉ khi có chuột thật + không reduced-motion */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference){
+  body{cursor:none}
+}
+/* Focus visible — keyboard navigation */
+:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
