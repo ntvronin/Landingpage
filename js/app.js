@@ -121,6 +121,42 @@
   }, { threshold: 0.5 });
   $$('.stats-bar').forEach(el => countObs.observe(el));
 
+  /* ----- Lightbox (proof gallery) ----- */
+  const lb = $('#lightbox');
+  const lbImg = $('#lightbox-img');
+  const lbCap = $('#lightbox-cap');
+  const lbClose = $('#lightbox-close');
+  if (lb && lbImg) {
+    const openLb = (src, cap) => {
+      lbImg.src = src;
+      lbImg.alt = cap || '';
+      lbCap.textContent = cap || '';
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeLb = () => {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    };
+    $$('.proj-shot').forEach(a => {
+      a.addEventListener('click', e => {
+        // data-shot rỗng = chưa có ảnh (placeholder) -> không mở
+        const src = a.getAttribute('data-shot');
+        if (!src) return;
+        e.preventDefault();
+        openLb(src, a.getAttribute('data-caption'));
+      });
+    });
+    lbClose?.addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lb.classList.contains('open')) closeLb();
+    });
+  }
+
   /* ----- Parallax (skip if reduced motion) ----- */
   const heroOrb1 = $('.hero-orb-1');
   const heroOrb2 = $('.hero-orb-2');
