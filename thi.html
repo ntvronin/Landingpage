@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Đánh giá năng lực AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- CSS của web chính; nếu tải hỏng thì CSS inline bên dưới vẫn đủ dùng -->
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  :root{--x-navy:#0a1628;--x-gold:#c9a227;--x-bg:#f6f7f9;--x-card:#fff;
+        --x-text:#12202f;--x-muted:#5b6b7c;--x-line:#dfe4ea;--x-ok:#008037;--x-err:#cc0000}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--x-bg);color:var(--x-text);
+       font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+  .x-wrap{max-width:820px;margin:0 auto;padding:24px 16px 64px}
+  .x-head{background:var(--x-navy);color:#fff;padding:28px 16px;text-align:center}
+  .x-head h1{font-family:Lora,Georgia,serif;margin:0 0 6px;font-size:1.5rem}
+  .x-head p{margin:0;opacity:.75;font-size:.9rem}
+  .x-card{background:var(--x-card);border:1px solid var(--x-line);border-radius:12px;
+          padding:20px;margin-bottom:16px}
+  .x-field{margin-bottom:14px}
+  .x-field label{display:block;font-weight:500;margin-bottom:6px;font-size:.92rem}
+  .x-field input{width:100%;padding:11px 13px;border:1px solid var(--x-line);
+                 border-radius:8px;font:inherit;background:#fff;color:inherit}
+  .x-field input:focus{outline:2px solid var(--x-gold);outline-offset:1px}
+  #x-code{font-size:1.5rem;letter-spacing:.35em;text-align:center;text-transform:uppercase;
+          font-family:ui-monospace,Menlo,Consolas,monospace}
+  .x-btn{display:inline-block;background:var(--x-navy);color:#fff;border:0;border-radius:8px;
+         padding:12px 22px;font:inherit;font-weight:500;cursor:pointer}
+  .x-btn:disabled{opacity:.5;cursor:not-allowed}
+  .x-btn-gold{background:var(--x-gold);color:var(--x-navy);font-weight:600}
+  .x-err{color:var(--x-err);font-size:.9rem;margin-top:10px;min-height:1.2em}
+  .x-muted{color:var(--x-muted);font-size:.88rem}
+  section{display:none}
+  section.active{display:block}
+  .x-bar{position:sticky;top:0;z-index:5;background:var(--x-navy);color:#fff;
+         padding:10px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  #x-clock{font-variant-numeric:tabular-nums;font-weight:600;font-size:1.1rem}
+  #x-clock.warn{color:#ffcf4d}
+  .x-progress{height:4px;background:rgba(255,255,255,.2);border-radius:2px;flex:1;overflow:hidden}
+  .x-progress>i{display:block;height:100%;background:var(--x-gold);width:0}
+  .x-grouphead{font-family:Lora,Georgia,serif;font-size:1.05rem;font-weight:600;
+               margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--x-gold)}
+  .x-q{background:var(--x-card);border:1px solid var(--x-line);border-radius:12px;
+       padding:16px;margin-bottom:12px}
+  .x-q.unanswered{border-color:#f0c14b}
+  .x-qtext{font-weight:500;margin-bottom:12px}
+  .x-opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--x-line);
+         border-radius:8px;margin-bottom:8px;cursor:pointer}
+  .x-opt:hover{background:#f2f5f8}
+  .x-opt.sel{border-color:var(--x-navy);background:#eef2f7}
+  .x-opt input{margin-top:4px}
+  .x-done{text-align:center;padding:56px 20px}
+  .x-done .tick{font-size:3rem;color:var(--x-ok)}
+  .x-noselect{user-select:none;-webkit-user-select:none}
+  @media(max-width:520px){#x-code{font-size:1.2rem;letter-spacing:.25em}}
+</style>
+</head>
+<body>
+<div class="x-head">
+  <h1>Đánh giá năng lực AI</h1>
+  <p>Nhập mã dự thi được cấp để bắt đầu</p>
+</div>
+
+<div class="x-wrap">
+
+  <!-- 1. NHẬP MÃ -->
+  <section id="s-code" class="active">
+    <div class="x-card">
+      <div class="x-field">
+        <label for="x-code">Mã dự thi</label>
+        <input id="x-code" maxlength="12" autocomplete="off" autocapitalize="characters" placeholder="········">
+      </div>
+      <button class="x-btn" id="b-code">Tiếp tục</button>
+      <div class="x-err" id="e-code"></div>
+    </div>
+  </section>
+
+  <!-- 2. KHAI THÔNG TIN -->
+  <section id="s-info">
+    <div class="x-card">
+      <h2 id="i-exam" style="font-family:Lora,serif;margin:0 0 4px;font-size:1.2rem"></h2>
+      <p class="x-muted" id="i-meta" style="margin:0 0 18px"></p>
+      <div class="x-field"><label for="f-name">Họ và tên</label><input id="f-name" maxlength="200" autocomplete="name"></div>
+      <div class="x-field"><label for="f-title">Vị trí công việc</label><input id="f-title" maxlength="200"></div>
+      <div class="x-field"><label for="f-org">Đơn vị công tác</label><input id="f-org" maxlength="200"></div>
+      <p class="x-muted">Bấm bắt đầu là đồng hồ chạy. Hãy chuẩn bị sẵn sàng trước khi bấm.</p>
+      <button class="x-btn x-btn-gold" id="b-start">Bắt đầu làm bài</button>
+      <div class="x-err" id="e-info"></div>
+    </div>
+  </section>
+
+  <!-- 3. LÀM BÀI -->
+  <section id="s-exam">
+    <div class="x-bar">
+      <span id="x-count">0/0</span>
+      <span class="x-progress"><i id="x-prog"></i></span>
+      <span id="x-clock">--:--</span>
+    </div>
+    <div id="x-questions" class="x-noselect"></div>
+    <div class="x-card" style="text-align:center">
+      <p class="x-muted" id="x-remain"></p>
+      <button class="x-btn x-btn-gold" id="b-submit">Nộp bài</button>
+      <div class="x-err" id="e-exam"></div>
+      <div style="margin-top:14px">
+        <a href="#" id="b-restart" class="x-muted" style="text-decoration:underline">
+          Không phải bài của bạn? Nhập mã khác
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ĐÃ NỘP -->
+  <section id="s-done">
+    <div class="x-card x-done">
+      <div class="tick">✓</div>
+      <h2 style="font-family:Lora,serif">Đã nộp bài</h2>
+      <p class="x-muted">Cảm ơn anh/chị đã dành thời gian hoàn thành bài đánh giá.</p>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+    var box = document.getElementById('e-code');
+    if (box) {
+      box.textContent = 'Không tải được thư viện kết nối. Vui lòng kiểm tra mạng rồi tải lại trang.';
+    }
+    return;
+  }
+
+  // ĐIỀN hai giá trị này từ .env của repo TPT (Step 1).
+  var SUPABASE_URL = 'https://fttjbmbymvgveaxdvzsg.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0dGpibWJ5bXZndmVheGR2enNnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1MzU1MDMsImV4cCI6MjA5MzExMTUwM30.FCXeNMIRUGg4bm0EgDXlbPb0iZyX6F4BevLWkDaTiu8';
+
+  var db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+
+  // Server CỐ Ý gộp mọi lý do mã hỏng thành một mã lỗi duy nhất INVALID_CODE
+  // (sai / là mã nội bộ / bị khoá / hết hạn / đề chưa mở): phân biệt được
+  // nghĩa là dò được. Lý do thật nằm trong log Postgres, anh Văn tra ở đó.
+  var MSG = {
+    INVALID_CODE:             'Mã dự thi không dùng được. Vui lòng kiểm tra lại hoặc liên hệ người cấp mã.',
+    TOO_MANY_SESSIONS:        'Mã này đã đạt giới hạn số lượt vào thi. Vui lòng liên hệ người cấp mã.',
+    MISSING_CANDIDATE_INFO:   'Vui lòng nhập đủ họ tên, vị trí công việc và đơn vị công tác.',
+    CANDIDATE_INFO_TOO_LONG:  'Mỗi ô thông tin tối đa 200 ký tự.',
+    SESSION_NOT_FOUND:        'Phiên làm bài không còn hiệu lực. Vui lòng nhập lại mã.',
+    SESSION_ALREADY_SUBMITTED:'Bài này đã được nộp rồi.'
+  };
+
+  // Lỗi Supabase KHÔNG phải Error thường — phải đọc .message thủ công.
+  function errText(err) {
+    var raw = (err && err.message) ? String(err.message) : '';
+    for (var k in MSG) { if (raw.indexOf(k) !== -1) return MSG[k]; }
+    return raw || 'Có lỗi xảy ra, vui lòng thử lại.';
+  }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var state = { code: '', token: null, name: '', questions: [], answers: {}, expiresAt: 0, startedAt: 0, timer: null, confirmIncomplete: false, submitting: false };
+
+  function showScreen(id) {
+    ['s-code', 's-info', 's-exam', 's-done'].forEach(function (s) {
+      $(s).classList.toggle('active', s === id);
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function storageKey() { return 'tpt_exam_' + state.token; }
+
+  function saveLocal() {
+    try {
+      localStorage.setItem(storageKey(), JSON.stringify({
+        token: state.token, code: state.code, name: state.name, answers: state.answers,
+        questions: state.questions, expiresAt: state.expiresAt, startedAt: state.startedAt
+      }));
+      localStorage.setItem('tpt_exam_last', state.token);
+    } catch (e) { /* hết quota thì vẫn làm bài được, chỉ mất khả năng khôi phục */ }
+  }
+
+  function clearLocal() {
+    try {
+      localStorage.removeItem(storageKey());
+      localStorage.removeItem('tpt_exam_last');
+    } catch (e) {}
+  }
+
+  // ── Màn 1: nhập mã ────────────────────────────────────────────
+  var codeInput = $('x-code');
+  var params = new URLSearchParams(location.search);
+  if (params.get('code')) codeInput.value = params.get('code').toUpperCase();
+  codeInput.addEventListener('input', function () { this.value = this.value.toUpperCase(); });
+  codeInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') $('b-code').click(); });
+
+  $('b-code').addEventListener('click', async function () {
+    var btn = this, code = codeInput.value.trim().toUpperCase();
+    $('e-code').textContent = '';
+    if (!code) { $('e-code').textContent = 'Vui lòng nhập mã dự thi.'; return; }
+    btn.disabled = true; btn.textContent = 'Đang kiểm tra...';
+    var res = await db.rpc('guest_validate_code', { p_code: code });
+    btn.disabled = false; btn.textContent = 'Tiếp tục';
+    if (res.error) { $('e-code').textContent = errText(res.error); return; }
+    var info = Array.isArray(res.data) ? res.data[0] : res.data;
+    if (!info) { $('e-code').textContent = MSG.INVALID_CODE; return; }
+    state.code = code;
+    $('i-exam').textContent = info.exam_title;
+    $('i-meta').textContent = info.question_count + ' câu · ' + info.time_limit + ' phút'
+      + (info.class_label ? ' · ' + info.class_label : '');
+    showScreen('s-info');
+  });
+
+  // ── Màn 2: khai thông tin ─────────────────────────────────────
+  $('b-start').addEventListener('click', async function () {
+    var btn = this;
+    $('e-info').textContent = '';
+    var name = $('f-name').value.trim(),
+        title = $('f-title').value.trim(),
+        org = $('f-org').value.trim();
+    if (!name || !title || !org) { $('e-info').textContent = MSG.MISSING_CANDIDATE_INFO; return; }
+    btn.disabled = true; btn.textContent = 'Đang chuẩn bị đề...';
+    var res = await db.rpc('guest_start_exam', {
+      p_code: state.code, p_name: name, p_title: title, p_org: org
+    });
+    btn.disabled = false; btn.textContent = 'Bắt đầu làm bài';
+    if (res.error) { $('e-info').textContent = errText(res.error); return; }
+    state.token = res.data.session_token;
+    state.name = name;
+    state.questions = res.data.questions || [];
+    state.expiresAt = new Date(res.data.expires_at).getTime();
+    state.startedAt = Date.now();
+    state.answers = {};
+    saveLocal();
+    renderQuestions();
+    showScreen('s-exam');
+    startClock();
+  });
+
+  // ── Màn 3: làm bài ────────────────────────────────────────────
+  function renderQuestions() {
+    var host = $('x-questions'), html = '', lastGroup = null;
+    state.questions.forEach(function (q, i) {
+      if (q.group_label !== lastGroup) {
+        html += '<div class="x-grouphead">' + esc(q.group_label) + '</div>';
+        lastGroup = q.group_label;
+      }
+      html += '<div class="x-q" id="q-' + q.id + '">'
+            + '<div class="x-qtext">Câu ' + (i + 1) + '. ' + esc(q.question_text) + '</div>';
+      ['a', 'b', 'c', 'd'].forEach(function (letter, idx) {
+        html += '<label class="x-opt" data-q="' + q.id + '" data-i="' + idx + '">'
+              + '<input type="radio" name="q' + q.id + '" value="' + idx + '">'
+              + '<span>' + esc(q['option_' + letter]) + '</span></label>';
+      });
+      html += '</div>';
+    });
+    host.innerHTML = html;
+
+    updateProgress();
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function updateProgress() {
+    var done = Object.keys(state.answers).length, total = state.questions.length;
+    $('x-count').textContent = done + '/' + total;
+    $('x-prog').style.width = total ? (done / total * 100) + '%' : '0';
+    $('x-remain').textContent = done < total
+      ? 'Còn ' + (total - done) + ' câu chưa trả lời.'
+      : 'Đã trả lời hết các câu.';
+    if (state.confirmIncomplete && done === total) {
+      state.confirmIncomplete = false;
+      $('b-submit').textContent = 'Nộp bài';
+      $('e-exam').textContent = '';
+    }
+  }
+
+  function startClock() {
+    if (state.timer) clearInterval(state.timer);
+    tick();
+    state.timer = setInterval(tick, 1000);
+  }
+
+  function tick() {
+    // Hạn nộp chốt ở SERVER (expires_at), không tin đồng hồ máy ứng viên.
+    var left = Math.max(0, Math.floor((state.expiresAt - Date.now()) / 1000));
+    var m = Math.floor(left / 60), s = left % 60;
+    var el = $('x-clock');
+    el.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+    el.classList.toggle('warn', left <= 120);
+    if (left === 0) { clearInterval(state.timer); state.timer = null; submit(true); }
+  }
+
+  $('b-submit').addEventListener('click', function () { submit(false); });
+
+  $('b-restart').addEventListener('click', function (e) {
+    e.preventDefault();
+    if (state.submitting) {
+      $('e-exam').textContent = 'Đang nộp bài, vui lòng đợi xử lý xong rồi hãy đổi mã.';
+      return;
+    }
+    if (!window.confirm('Bỏ bài đang làm và quay lại nhập mã khác?')) return;
+    if (state.timer) { clearInterval(state.timer); state.timer = null; }
+    clearLocal();
+    state = { code: '', token: null, name: '', questions: [], answers: {}, expiresAt: 0, startedAt: 0, timer: null, confirmIncomplete: false, submitting: false };
+    $('x-questions').innerHTML = '';
+    $('e-exam').textContent = '';
+    $('x-code').value = '';
+    var sb = $('b-submit');
+    sb.disabled = false;
+    sb.textContent = 'Nộp bài';
+    showScreen('s-code');
+  });
+
+  // Gắn MỘT LẦN: #x-questions sống suốt vòng đời trang. Gắn bên trong
+  // renderQuestions sẽ chồng thêm listener mỗi lần vẽ lại (sau khi bấm
+  // "nhập mã khác"), khiến mỗi thao tác chạy nhiều lần.
+  (function () {
+    var host = $('x-questions');
+    host.addEventListener('change', function (e) {
+      var lab = e.target.closest('.x-opt');
+      if (!lab) return;
+      var qid = lab.getAttribute('data-q');
+      state.answers[qid] = parseInt(lab.getAttribute('data-i'), 10);
+      Array.prototype.forEach.call(
+        host.querySelectorAll('.x-opt[data-q="' + qid + '"]'),
+        function (el) { el.classList.toggle('sel', el === lab); }
+      );
+      var card = $('q-' + qid);
+      if (card) card.classList.remove('unanswered');
+      saveLocal();
+      updateProgress();
+    });
+
+    // Rào cản lịch sự, KHÔNG phải biện pháp bảo mật.
+    host.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    host.addEventListener('copy', function (e) { e.preventDefault(); });
+  })();
+
+  async function submit(auto) {
+    if (state.submitting) return;
+
+    // Chụp lấy phiên của LẦN gọi này. Nút "nhập mã khác" thay nguyên đối tượng
+    // state, nên kết quả trả về muộn của phiên cũ tuyệt đối không được ghi đè
+    // lên phiên của người kế tiếp.
+    var mySession = state;
+
+    var btn = $('b-submit');
+    $('e-exam').textContent = '';
+
+    if (!auto && !state.confirmIncomplete) {
+      var missing = state.questions.filter(function (q) {
+        return state.answers[q.id] === undefined;
+      });
+      if (missing.length > 0) {
+        Array.prototype.forEach.call(document.querySelectorAll('.x-q'), function (el) {
+          el.classList.remove('unanswered');
+        });
+        missing.forEach(function (q) {
+          var c = $('q-' + q.id); if (c) c.classList.add('unanswered');
+        });
+        var first = $('q-' + missing[0].id);
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        $('e-exam').textContent = 'Còn ' + missing.length + ' câu chưa trả lời. '
+          + 'Bấm "Nộp bài" lần nữa nếu vẫn muốn nộp.';
+        state.confirmIncomplete = true;
+        btn.textContent = 'Nộp bài dù còn thiếu';
+        return;
+      }
+    }
+
+    state.submitting = true;
+    btn.disabled = true; btn.textContent = 'Đang nộp...';
+    var payload = {};
+    Object.keys(state.answers).forEach(function (k) { payload[k] = state.answers[k]; });
+    var spent = Math.max(0, Math.round((Date.now() - state.startedAt) / 1000));
+
+    for (var attempt = 1; attempt <= 3; attempt++) {
+      var res = await db.rpc('guest_submit_exam', {
+        p_session_token: state.token, p_selected: payload, p_time_spent: spent
+      });
+      if (mySession !== state) return;
+      if (!res.error) { clearLocal(); showScreen('s-done'); return; }
+      var msg = String(res.error.message || '');
+      if (msg.indexOf('SESSION_ALREADY_SUBMITTED') !== -1) {
+        clearLocal(); showScreen('s-done'); return;
+      }
+      if (msg.indexOf('SESSION_NOT_FOUND') !== -1) {
+        state.submitting = false;
+        btn.disabled = false; btn.textContent = 'Nộp bài';
+        $('e-exam').textContent = MSG.SESSION_NOT_FOUND;
+        return;
+      }
+      if (attempt < 3) {
+        await new Promise(function (r) { setTimeout(r, attempt * 1500); });
+        if (mySession !== state) return;
+      } else {
+        state.submitting = false;
+        btn.disabled = false; btn.textContent = 'Thử nộp lại';
+        $('e-exam').textContent = 'Không nộp được (' + errText(res.error)
+          + '). Bài của anh/chị vẫn được giữ, hãy bấm "Thử nộp lại".';
+      }
+    }
+  }
+
+  // ── Khôi phục bài đang làm dở ──────────────────────────────────
+  (function restore() {
+    try {
+      var last = localStorage.getItem('tpt_exam_last');
+      if (!last) return;
+      var saved = JSON.parse(localStorage.getItem('tpt_exam_' + last) || 'null');
+      if (!saved || !saved.questions || saved.questions.length === 0) return;
+      if (Date.now() > saved.expiresAt) {
+        localStorage.removeItem('tpt_exam_' + last);
+        localStorage.removeItem('tpt_exam_last');
+        return;
+      }
+      // Máy dùng chung: người sau mở link có mã KHÁC thì tuyệt đối không được
+      // rơi vào phiên của người trước — bài sẽ bị ghi dưới tên người trước.
+      var urlCode = (new URLSearchParams(location.search).get('code') || '').trim().toUpperCase();
+      if (urlCode && saved.code && urlCode !== saved.code) return;
+
+      // Một mã dùng cho CẢ LỚP nên mọi người mở cùng một link — không thể phân
+      // biệt người này với người kia bằng mã. Trên máy dùng chung, khôi phục
+      // âm thầm sẽ khiến người sau nộp tiếp bài người trước, DƯỚI TÊN NGƯỜI TRƯỚC.
+      var who = saved.name ? '"' + saved.name + '"' : 'người dùng trước';
+      if (!window.confirm(
+            'Trên máy này đang có bài thi làm dở của ' + who + '.\n\n' +
+            'Bấm OK nếu đây đúng là bài của bạn và muốn làm tiếp.\n' +
+            'Bấm Cancel nếu bạn là người khác — bài sẽ được bỏ và bạn nhập mã từ đầu.')) {
+        try {
+          localStorage.removeItem('tpt_exam_' + last);
+          localStorage.removeItem('tpt_exam_last');
+        } catch (e) {}
+        return;
+      }
+
+      state.token = saved.token;
+      state.name = saved.name || '';
+      state.code = saved.code || '';
+      state.questions = saved.questions;
+      state.answers = saved.answers || {};
+      state.expiresAt = saved.expiresAt;
+      state.startedAt = saved.startedAt || Date.now();
+      renderQuestions();
+      Object.keys(state.answers).forEach(function (qid) {
+        var el = document.querySelector('.x-opt[data-q="' + qid + '"][data-i="' + state.answers[qid] + '"]');
+        if (el) { el.classList.add('sel'); el.querySelector('input').checked = true; }
+      });
+      updateProgress();
+      showScreen('s-exam');
+      startClock();
+    } catch (e) { /* hỏng thì bắt đầu lại từ màn nhập mã */ }
+  })();
+
+})();
+</script>
+</body>
+</html>
