@@ -2,772 +2,558 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nguyễn Thanh Văn — Người xây hệ thống · Nơi HR gặp tự động hóa & AI</title>
-<meta name="description" content="Người quản trị tự code, tự dựng web app và tự động hóa bằng AI. Tư vấn payroll/C&B cho doanh nghiệp SME — từ bảng lương tự động đến dashboard dữ liệu. Trưởng phòng HC-KH tại Toyota Phú Thọ.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nguyễn Thanh Văn | Chẩn đoán rủi ro nhân sự &amp; AI cho SME</title>
+<meta name="description" content="Chẩn đoán, xử lý rủi ro lương, BHXH, hợp đồng lao động cho SME. Đào tạo AI cho người làm hành chính – nhân sự – kế toán.">
 <meta name="author" content="Nguyễn Thanh Văn">
 <meta name="theme-color" content="#0a1628">
 <link rel="canonical" href="https://nguyenthanhvan.com.vn/">
 
-<!-- Open Graph / Facebook / Zalo -->
+<!-- Chia sẻ lên Facebook, Zalo, X -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Nguyễn Thanh Văn">
 <meta property="og:url" content="https://nguyenthanhvan.com.vn/">
-<meta property="og:title" content="Nguyễn Thanh Văn — Người xây hệ thống · Nơi HR gặp tự động hóa & AI">
-<meta property="og:description" content="Một người quản trị nhưng tự code, tự build, tự động hóa bằng AI. Tư vấn payroll/C&B cho SME, web app & dashboard dữ liệu. Giao hệ thống — không giao slide.">
-<meta property="og:image" content="https://nguyenthanhvan.com.vn/img/avatar.jpg">
-<meta property="og:image:width" content="600">
-<meta property="og:image:height" content="768">
-<meta property="og:image:alt" content="Nguyễn Thanh Văn">
-
-<!-- Twitter Card -->
+<meta property="og:title" content="Nguyễn Thanh Văn | Chẩn đoán rủi ro nhân sự &amp; AI cho SME">
+<meta property="og:description" content="Chẩn đoán, xử lý rủi ro lương, BHXH, hợp đồng lao động cho SME. Đào tạo AI cho người làm hành chính – nhân sự – kế toán.">
+<meta property="og:image" content="https://nguyenthanhvan.com.vn/img/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nguyễn Thanh Văn – Nhân sự SME: làm đúng luật, làm nhanh hơn nhờ AI">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nguyễn Thanh Văn — Người xây hệ thống · HR gặp tự động hóa & AI">
-<meta name="twitter:description" content="Quản trị tự code & tự động hóa bằng AI. Payroll/C&B, web app, dashboard dữ liệu cho SME Việt Nam.">
-<meta name="twitter:image" content="https://nguyenthanhvan.com.vn/img/avatar.jpg">
+<meta name="twitter:title" content="Nguyễn Thanh Văn | Chẩn đoán rủi ro nhân sự &amp; AI cho SME">
+<meta name="twitter:description" content="Chẩn đoán, xử lý rủi ro lương, BHXH, hợp đồng lao động cho SME. Đào tạo AI cho người làm hành chính – nhân sự – kế toán.">
+<meta name="twitter:image" content="https://nguyenthanhvan.com.vn/img/og-image.jpg">
+<meta name="twitter:image:alt" content="Nguyễn Thanh Văn – Nhân sự SME: làm đúng luật, làm nhanh hơn nhờ AI">
 
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Lora:wght@600&display=swap">
 
-<!-- JSON-LD: Person -->
+<style>
+/* ===== Token màu: tối là mặc định, sáng định nghĩa lại cùng bộ token ===== */
+:root{
+  --bg:#0a1628;
+  --surface:#11213a;
+  --text:#f2ead6;
+  --muted:#a9bbcf;
+  --accent:#c9a84c;
+  --line:rgba(201,168,76,.22);
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f6f2ea;
+  --surface:#fffdf8;
+  --text:#1a2535;
+  --muted:#44566b;
+  --accent:#8a5d16;
+  --line:#ddd3c1;
+  color-scheme:light;
+}
+
+/* ===== Nền tảng ===== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:1rem;line-height:1.7;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+h1,h2,h3{margin:0;font-family:Lora,Georgia,"Times New Roman",serif;font-weight:600;line-height:1.28;text-wrap:balance}
+p,ul,ol,dl,dd{margin:0}
+p,li{text-wrap:pretty}
+a{color:inherit}
+strong{font-weight:600}
+::selection{background:var(--accent);color:var(--bg)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+main:focus{outline:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:1rem;top:-10rem;z-index:100;padding:.75rem 1rem;border-radius:.5rem;background:var(--accent);color:var(--bg);font-weight:600;text-decoration:none}
+.skip:focus{top:1rem}
+.nw{white-space:nowrap}
+.wrap{width:min(100% - 2rem,70rem);margin-inline:auto}
+@media (min-width:48em){.wrap{width:min(100% - 3rem,70rem)}}
+
+/* ===== Nút ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;max-width:100%;min-height:3rem;padding:.7rem 1.35rem;border:1px solid transparent;border-radius:.5rem;font:inherit;font-weight:600;line-height:1.35;text-align:center;text-wrap:balance;text-decoration:none;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.btn-primary{background:var(--accent);color:var(--bg)}
+.btn-primary:hover{background:color-mix(in srgb,var(--accent) 86%,var(--text))}
+.btn-ghost{border-color:var(--accent);color:var(--accent)}
+.btn-ghost:hover{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.btn-sm{min-height:2.75rem;padding:.45rem .95rem;font-size:.9375rem}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;padding:0;border:1px solid var(--line);border-radius:.5rem;background:transparent;color:var(--text);cursor:pointer}
+.icon-btn:hover{border-color:var(--accent)}
+.icon-btn svg{width:1.25rem;height:1.25rem}
+
+/* ===== Header ===== */
+.site-header{border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;gap:.5rem;min-height:4.25rem}
+.logo{margin-right:auto;padding:.5rem 0;font-family:Lora,Georgia,serif;font-size:1.375rem;font-weight:600;color:var(--accent);text-decoration:none}
+.nav-desktop{display:none}
+.nav-desktop ul,.nav-mobile ul{margin:0;padding:0;list-style:none}
+.header-actions{display:flex;align-items:center;gap:.5rem}
+.theme-toggle .i-moon,:root[data-theme="light"] .theme-toggle .i-sun{display:none}
+:root[data-theme="light"] .theme-toggle .i-moon{display:block}
+:root:not(.js) .theme-toggle{visibility:hidden}
+.nav-mobile{position:relative}
+.nav-mobile summary{list-style:none}
+.nav-mobile summary::-webkit-details-marker{display:none}
+.nav-mobile .i-close,.nav-mobile[open] .i-menu{display:none}
+.nav-mobile[open] .i-close{display:block}
+.nav-mobile nav{position:absolute;right:0;top:calc(100% + .5rem);z-index:20;min-width:15rem;padding:.5rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;box-shadow:0 16px 40px rgb(0 0 0 / .28)}
+.nav-mobile a{display:flex;align-items:center;min-height:3rem;padding:0 1rem;border-radius:.5rem;text-decoration:none}
+.nav-mobile a:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+@media (min-width:60em){
+  .logo{margin-right:0}
+  .nav-desktop{display:block;margin-inline:auto}
+  .nav-desktop ul{display:flex;gap:1rem}
+  .nav-desktop a{display:inline-block;padding:.75rem .5rem;color:var(--muted);font-size:.9375rem;text-decoration:none}
+  .nav-desktop a:hover{color:var(--text)}
+  .nav-mobile{display:none}
+}
+
+/* ===== Hero ===== */
+.hero{padding:clamp(2.5rem,1.5rem + 4vw,5rem) 0 clamp(3.5rem,2.5rem + 4vw,6rem)}
+.hero-grid{display:grid;gap:2.75rem}
+.hero h1{max-width:17em;font-size:clamp(1.9375rem,1.2rem + 3.3vw,3.375rem);line-height:1.2}
+.lead{max-width:36em;margin-top:1.25rem;color:var(--muted);font-size:clamp(1.0625rem,1rem + .25vw,1.1875rem)}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.proof{position:relative;display:grid;margin-top:2.75rem;padding:0;list-style:none;border-top:1px solid var(--line)}
+.proof::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--accent);transform-origin:left}
+.proof li{padding:.9rem 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.9375rem;line-height:1.55}
+.proof strong{color:var(--text)}
+.hero-photo{position:relative;isolation:isolate;width:min(100% - .75rem,17rem)}
+.hero-photo::before{content:"";position:absolute;inset:0;z-index:-1;border:1px solid var(--accent);border-radius:1rem;transform:translate(.75rem,.75rem)}
+.hero-photo picture{display:block}
+.hero-photo img{width:100%;border-radius:1rem;background:var(--surface)}
+@media (max-width:29.99em){.actions .btn{flex:1 1 100%}}
+@media (min-width:56em){
+  .hero-grid{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:4rem}
+  .proof{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr);gap:1.5rem;border-bottom:1px solid var(--line)}
+  .proof li{padding:1rem 0 1.1rem;border-bottom:0}
+  .hero-photo{justify-self:end;width:min(100% - .75rem,23rem)}
+}
+
+/* ===== Khung chung của các mục ===== */
+.section{padding:clamp(3.5rem,2.5rem + 4vw,6rem) 0;border-top:1px solid var(--line)}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+.band + .section{border-top:0}
+.section h2{max-width:22em;font-size:clamp(1.625rem,1.2rem + 1.7vw,2.375rem)}
+.section-lead{max-width:36em;margin-top:1rem;color:var(--muted);font-size:1.0625rem}
+.section-cta{margin-top:2rem}
+
+/* ===== Vấn đề thường gặp ===== */
+.problems{display:grid;gap:1rem;margin-top:2rem;padding:0;list-style:none}
+@media (min-width:40em){.problems{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.problems li{position:relative;padding:1.2rem 1.25rem 1.2rem 3rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem}
+.problems li::before{content:"";position:absolute;left:1.25rem;top:1.75rem;width:.625rem;height:.625rem;border:2px solid var(--accent);border-radius:50%}
+
+/* ===== Thang chẩn đoán: điểm nhấn duy nhất của trang ===== */
+.ladder{display:grid;margin-top:2.75rem;padding:0;list-style:none;counter-reset:buoc}
+.step{position:relative;padding:0 0 2.25rem 4rem;counter-increment:buoc}
+.step:last-child{padding-bottom:0}
+.step::before{content:counter(buoc);position:absolute;left:0;top:0;display:flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border:2px solid var(--accent);border-radius:50%;background:var(--surface);color:var(--accent);font-family:Lora,Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1}
+.step:first-child::before{background:var(--accent);color:var(--bg)}
+.step:not(:last-child)::after{content:"";position:absolute;left:calc(1.375rem - 1px);top:3.25rem;bottom:.5rem;width:2px;background:var(--accent);opacity:.45}
+.step h3{padding-top:.4rem;font-size:1.25rem;text-wrap:pretty}
+.step p,.step ul{max-width:36em;margin-top:.5rem;color:var(--muted)}
+.tag{display:inline-block;margin-left:.3rem;padding:0 .6rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);font-family:"Be Vietnam Pro",system-ui,sans-serif;font-size:.8125rem;font-weight:600;line-height:1.65;vertical-align:.2em;white-space:nowrap}
+.checklist{padding:0;list-style:none}
+.checklist li{position:relative;padding-left:1.15rem}
+.checklist li+li{margin-top:.3rem}
+.checklist li::before{content:"";position:absolute;left:0;top:.8em;width:.5rem;height:2px;background:var(--accent)}
+@media (min-width:60em){
+  .ladder{grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
+  .step{padding:4.25rem 0 0}
+  .step:not(:last-child)::after{left:3.5rem;right:-1.25rem;top:calc(1.375rem - 1px);bottom:auto;width:auto;height:2px}
+}
+
+/* ===== Case bảng lương ===== */
+.case{display:grid;gap:1.25rem;margin-top:3rem;padding:1.5rem;background:var(--bg);border:1px solid var(--line);border-radius:.75rem}
+.case h3{font-size:1.25rem}
+.case-meta{margin-top:.25rem;color:var(--muted);font-size:.9375rem}
+.case-text{max-width:36em;margin-top:.9rem}
+.case-result{max-width:36em;padding-left:1rem;border-left:3px solid var(--accent);font-size:1.0625rem}
+.ladder-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:2.5rem}
+.ladder-cta p{font-weight:600}
+@media (min-width:48em){.case{grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:center;gap:2.5rem;padding:2rem}}
+
+/* ===== Đào tạo AI ===== */
+.offers{display:grid;gap:1rem;margin-top:2rem}
+.offer{padding:1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:.75rem}
+.offer h3{font-size:1.1875rem}
+.offer p{max-width:36em;margin-top:.5rem;color:var(--muted)}
+.proof-note{max-width:36em;margin-top:1.75rem;padding-left:1rem;border-left:2px solid var(--accent)}
+@media (min-width:40em){.offers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ===== Cách tôi làm việc ===== */
+.principles{display:grid;gap:2rem 3rem;margin-top:2rem;padding:0;list-style:none}
+.principles li{padding-top:1.25rem;border-top:1px solid var(--line)}
+.principles h3{font-size:1.1875rem}
+.principles p{max-width:34em;margin-top:.5rem;color:var(--muted)}
+@media (min-width:48em){.principles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ===== Về tôi ===== */
+.about-grid{display:grid;gap:2.5rem}
+.about-bio p{max-width:36em;margin-top:1.25rem}
+.about-grid h3{font-size:1.1875rem}
+.creds{margin-top:1rem;padding:0;list-style:none;border-top:1px solid var(--line)}
+.creds li{padding:.8rem 0;border-bottom:1px solid var(--line)}
+.creds .note{color:var(--muted)}
+@media (min-width:56em){.about-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:start;gap:4rem}.about-grid h3{padding-top:.6rem}}
+
+/* ===== Hỏi đáp ===== */
+.faq{max-width:48rem;margin-top:2rem;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{position:relative;display:block;padding:1.05rem 2.75rem 1.05rem 0;font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:.75rem;top:1.5rem;width:.55rem;height:.55rem;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{top:1.8rem;transform:rotate(-135deg)}
+.faq details p{max-width:34em;padding-bottom:1.25rem;color:var(--muted)}
+
+/* ===== Liên hệ ===== */
+.contact-grid{display:grid;gap:2.5rem}
+.contact-grid .section-lead{max-width:34em}
+.contact-list{border-top:1px solid var(--line)}
+.contact-list div{display:grid;gap:.1rem;padding:.75rem 0;border-bottom:1px solid var(--line)}
+.contact-list dt{color:var(--muted);font-size:.875rem}
+.contact-list dd a{display:inline-flex;align-items:center;min-height:2.75rem;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:.25em;overflow-wrap:anywhere}
+.contact-list dd a:hover{color:var(--accent)}
+@media (min-width:30em){.contact-list div{grid-template-columns:7.5rem minmax(0,1fr);align-items:center;gap:1rem}}
+@media (min-width:56em){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:4rem}}
+
+/* ===== Footer và nút Zalo nổi ===== */
+.site-footer{padding:2rem 0 6.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.875rem}
+.site-footer p+p{margin-top:.35rem}
+.fab{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:max(1rem,env(safe-area-inset-bottom));z-index:30;display:inline-flex;align-items:center;gap:.45rem;min-height:3.25rem;padding:0 1.15rem 0 .95rem;border-radius:999px;background:var(--accent);color:var(--bg);font-weight:600;text-decoration:none;box-shadow:0 10px 28px rgb(0 0 0 / .32);transition:opacity .2s,visibility .2s,background-color .2s}
+.fab.is-hidden{opacity:0;visibility:hidden}
+.fab:hover{background:color-mix(in srgb,var(--accent) 86%,var(--text))}
+.fab svg{width:1.5rem;height:1.5rem;fill:currentColor}
+
+/* ===== Chuyển động: một khoảnh khắc duy nhất khi tải hero ===== */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .proof::before{animation:draw 1.1s .15s cubic-bezier(.2,.7,.2,1) both}
+  .proof li{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .proof li:nth-child(1){animation-delay:.35s}
+  .proof li:nth-child(2){animation-delay:.47s}
+  .proof li:nth-child(3){animation-delay:.59s}
+  .hero-photo::before{animation:settle 1s .2s cubic-bezier(.2,.7,.2,1) both}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(.6rem)}to{opacity:1;transform:none}}
+@keyframes settle{from{opacity:0;transform:translate(0,0)}to{opacity:1;transform:translate(.75rem,.75rem)}}
+
+/* ===== In ===== */
+@media print{
+  :root,:root[data-theme="light"]{--bg:#fff;--surface:#fff;--text:#000;--muted:#333;--accent:#6b4a12;--line:#ccc}
+  .skip,.header-actions,.nav-desktop,.fab{display:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua, tới nội dung chính</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top">NTVăn</a>
+    <nav class="nav-desktop" aria-label="Menu chính">
+      <ul>
+        <li><a href="#chan-doan">Chẩn đoán</a></li>
+        <li><a href="#dao-tao-ai">Đào tạo AI</a></li>
+        <li><a href="#cach-lam-viec">Cách làm việc</a></li>
+        <li><a href="#about">Về tôi</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm" href="https://zalo.me/0968161343" target="_blank" rel="noopener">Nhắn Zalo</a>
+      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Giao diện sáng">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.75v2M12 19.25v2M2.75 12h2M19.25 12h2M5.46 5.46l1.41 1.41M17.13 17.13l1.41 1.41M5.46 18.54l1.41-1.41M17.13 6.87l1.41-1.41"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <details class="nav-mobile">
+        <summary class="icon-btn">
+          <span class="sr-only">Menu</span>
+          <svg class="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </summary>
+        <nav aria-label="Menu chính">
+          <ul>
+            <li><a href="#chan-doan">Chẩn đoán</a></li>
+            <li><a href="#dao-tao-ai">Đào tạo AI</a></li>
+            <li><a href="#cach-lam-viec">Cách làm việc</a></li>
+            <li><a href="#about">Về tôi</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="hero-title"><span class="nw">Nhân sự SME:</span> <span class="nw">làm đúng luật,</span> <span class="nw">làm nhanh hơn</span> <span class="nw">nhờ AI</span></h1>
+        <p class="lead">Tôi là Nguyễn Thanh Văn, người quản trị nhân sự tự dựng công cụ cho chính công việc của mình. Tôi giúp doanh nghiệp vừa và nhỏ tìm và xử lý rủi ro về lương, BHXH, hợp đồng lao động trước khi chúng thành vấn đề, và giúp đội hành chính – nhân sự dùng AI vào việc hằng ngày.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://zalo.me/0968161343" target="_blank" rel="noopener">Đặt lịch chẩn đoán nhanh</a>
+          <a class="btn btn-ghost" href="#dao-tao-ai">Xem chương trình đào tạo AI</a>
+        </div>
+        <ul class="proof" role="list">
+          <li><strong>Hơn 12 năm</strong> kinh nghiệm</li>
+          <li>Bảng lương nhà máy <span class="nw">250–300</span> người: <strong class="nw">từ 3 ngày còn 3 giờ</strong></li>
+          <li><strong lang="en">ISO Internal Auditor</strong></li>
+        </ul>
+      </div>
+      <div class="hero-photo">
+        <picture>
+          <source type="image/webp" srcset="/img/avatar.webp">
+          <img src="/img/avatar.jpg" width="600" height="768" alt="Chân dung Nguyễn Thanh Văn" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="van-de" aria-labelledby="van-de-title">
+    <div class="wrap">
+      <h2 id="van-de-title">Doanh nghiệp bạn có đang như thế này?</h2>
+      <ul class="problems" role="list">
+        <li>Hợp đồng lao động, quy chế lương, nội quy soạn từ nhiều năm trước, chưa rà lại theo luật hiện hành.</li>
+        <li>Lương đóng BHXH và lương thực trả chưa chắc đã khớp quy định.</li>
+        <li>Bảng lương nằm trong đầu một người; người đó nghỉ là cả quy trình tê liệt.</li>
+        <li>Đội hành chính – nhân sự vẫn làm tay những việc máy làm được.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section band" id="chan-doan" aria-labelledby="chan-doan-title">
+    <div class="wrap">
+      <h2 id="chan-doan-title">Chẩn đoán rủi ro nhân sự</h2>
+      <p class="section-lead">Như một lần khám tổng quát, nhưng cho hệ thống nhân sự: phát hiện sớm, xử lý đúng chỗ, theo dõi định kỳ.</p>
+      <ol class="ladder" role="list">
+        <li class="step">
+          <h3>Chẩn đoán nhanh <span class="tag">miễn phí</span></h3>
+          <p>30 phút qua Zalo hoặc gọi video. Tôi hỏi những câu then chốt và chỉ ra 3 rủi ro lớn nhất.</p>
+        </li>
+        <li class="step">
+          <h3>Chẩn đoán <span class="nw">chuyên sâu</span> <span class="tag">trọn gói</span></h3>
+          <p>Tôi rà hồ sơ thật: hợp đồng lao động, quy chế lương, thang bảng lương, hồ sơ BHXH, nội quy lao động. Bạn nhận báo cáo rủi ro xếp theo mức độ, kèm phương án và dự toán xử lý.</p>
+        </li>
+        <li class="step">
+          <h3>Điều trị theo từng <span class="nw">hạng mục</span></h3>
+          <ul class="checklist">
+            <li>Hệ thống tính lương và C&amp;B tự động</li>
+            <li>Quy chế lương, thang bảng lương</li>
+            <li>Hợp đồng lao động, nội quy lao động</li>
+            <li>Chuẩn hóa quy trình và tài liệu theo ISO</li>
+          </ul>
+        </li>
+        <li class="step">
+          <h3>Tái khám định kỳ</h3>
+          <p>Rà lại mỗi năm hoặc khi luật thay đổi, để hệ thống luôn đúng.</p>
+        </li>
+      </ol>
+
+      <article class="case" aria-labelledby="case-title">
+        <div>
+          <h3 id="case-title">Tự động hóa bảng lương sản lượng</h3>
+          <p class="case-meta">Doanh nghiệp sản xuất, <span class="nw">250–300</span> nhân sự, Phú Thọ</p>
+          <p class="case-text">Lương tính theo sản lượng và khoán. Tôi dựng workbook tự động xử lý, kiểm tra và xuất file, tính theo quy định BHXH và thuế TNCN hiện hành.</p>
+        </div>
+        <p class="case-result"><strong>Kết quả:</strong> thời gian mỗi kỳ lương <span class="nw">từ 3 ngày còn 3 giờ;</span> sai sót gần như bằng 0.</p>
+      </article>
+
+      <div class="ladder-cta">
+        <p>Báo giá trọn gói sau buổi chẩn đoán nhanh.</p>
+        <a class="btn btn-primary" href="https://zalo.me/0968161343" target="_blank" rel="noopener">Đặt lịch chẩn đoán nhanh</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dao-tao-ai" aria-labelledby="dao-tao-ai-title">
+    <div class="wrap">
+      <h2 id="dao-tao-ai-title">AI cho người làm <span class="nw">hành chính –</span> <span class="nw">nhân sự –</span> <span class="nw">kế toán</span></h2>
+      <p class="section-lead">Không phải để biết thêm một công cụ, mà để làm xong việc nhân sự nhanh và chắc hơn: soạn mô tả công việc, quy chế, báo cáo, xử lý dữ liệu chấm công và lương.</p>
+      <div class="offers">
+        <div class="offer">
+          <h3>Cho cá nhân</h3>
+          <p>Khóa chuyên sâu, thiết kế quanh công việc thật của người học.</p>
+        </div>
+        <div class="offer">
+          <h3>Cho đội nhóm, doanh nghiệp</h3>
+          <p>Chương trình đào tạo nội bộ, xây quanh đúng công việc đội đang làm.</p>
+        </div>
+      </div>
+      <p class="proof-note">Đã thiết kế và triển khai chương trình AI cơ bản 6 buổi cho đội ngũ quản lý cấp trung của một doanh nghiệp ~130 nhân sự.</p>
+      <div class="section-cta">
+        <a class="btn btn-ghost" href="https://zalo.me/0968161343" target="_blank" rel="noopener">Nhắn Zalo để nhận thông tin khóa học</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cach-lam-viec" aria-labelledby="cach-lam-viec-title">
+    <div class="wrap">
+      <h2 id="cach-lam-viec-title">Cách tôi làm việc</h2>
+      <ul class="principles" role="list">
+        <li>
+          <h3>Giao hệ thống, không giao slide</h3>
+          <p>Mỗi dự án kết thúc bằng công cụ dùng được ngay và tài liệu hướng dẫn rõ ràng, không phải bản báo cáo đẹp nằm trong ngăn kéo.</p>
+        </li>
+        <li>
+          <h3>Nhìn từ bên trong</h3>
+          <p>Tôi đang trực tiếp phụ trách mảng hành chính – nhân sự của một doanh nghiệp ~130 người, nên chỉ tư vấn những gì chạy được trong điều kiện thật.</p>
+        </li>
+        <li>
+          <h3>Bảo mật dữ liệu</h3>
+          <p>Tôi ký thỏa thuận bảo mật (NDA) trước khi nhận dữ liệu và ưu tiên làm việc trên dữ liệu đã ẩn danh hoặc dữ liệu mẫu. Sau khi bàn giao, tôi xóa dữ liệu đã nhận.</p>
+        </li>
+        <li>
+          <h3>Không để bạn phụ thuộc</h3>
+          <p>Bàn giao đủ hướng dẫn để đội của bạn tự vận hành. Khi luật thay đổi, gói tái khám giúp hệ thống luôn cập nhật.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap about-grid">
+      <div class="about-bio">
+        <h2 id="about-title">Về tôi</h2>
+        <p>Tôi là Nguyễn Thanh Văn, hơn 12 năm kinh nghiệm trong nhân sự, hành chính, chăm sóc khách hàng và hệ thống chất lượng ISO. Hiện tôi là Trưởng phòng Hành chính – Khách hàng tại một doanh nghiệp ~130 nhân sự. Tôi tự học lập trình để dựng công cụ cho chính công việc của mình, từ bảng lương tự động đến ứng dụng nội bộ và dashboard dữ liệu.</p>
+      </div>
+      <div>
+        <h3>Bằng cấp và chứng chỉ</h3>
+        <ul class="creds" role="list">
+          <li>Kỹ sư, Đại học Bách khoa Hà Nội</li>
+          <li><span lang="en">ISO Internal Auditor</span> <span class="note">(chuyên gia đánh giá nội bộ ISO)</span></li>
+          <li><span lang="en">Toyota Certified Internal Trainer</span> <span class="note">(đào tạo viên nội bộ)</span></li>
+          <li>Chứng nhận Toyota Way: TBP, Kaizen, 5 Whys</li>
+          <li><span lang="en">Professional Executive Director</span>, PTI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="hoi-dap" aria-labelledby="hoi-dap-title">
+    <div class="wrap">
+      <h2 id="hoi-dap-title">Hỏi đáp</h2>
+      <div class="faq">
+        <details>
+          <summary>Doanh nghiệp ở xa Phú Thọ có làm việc được không?</summary>
+          <p>Được. Phần lớn công việc làm từ xa: trao đổi qua Zalo hoặc gọi video, nhận hồ sơ qua kênh hai bên thống nhất.</p>
+        </details>
+        <details>
+          <summary>Dữ liệu lương của doanh nghiệp được xử lý thế nào?</summary>
+          <p>Tôi ký thỏa thuận bảo mật (NDA) trước khi nhận dữ liệu, ưu tiên làm việc trên dữ liệu đã ẩn danh hoặc dữ liệu mẫu, và xóa dữ liệu đã nhận sau khi bàn giao.</p>
+        </details>
+        <details>
+          <summary>Luật thay đổi thì hệ thống có còn đúng không?</summary>
+          <p>Mỗi khi quy định về lương, BHXH, thuế thay đổi, gói tái khám sẽ rà và cập nhật lại hệ thống.</p>
+        </details>
+        <details>
+          <summary>Anh có tư vấn pháp luật hay giải quyết tranh chấp không?</summary>
+          <p>Tôi tư vấn quản trị và tuân thủ nhân sự. Với tranh chấp, khiếu kiện hoặc khi cần ý kiến pháp lý chính thức, tôi khuyến nghị doanh nghiệp làm việc với luật sư.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 id="contact-title">Liên hệ</h2>
+        <p class="section-lead">Nhắn Zalo là cách nhanh nhất. Không cần chuẩn bị gì, chỉ cần mô tả ngắn tình trạng của doanh nghiệp. Phản hồi trong vòng 24 giờ.</p>
+        <div class="section-cta">
+          <a class="btn btn-primary" href="https://zalo.me/0968161343" target="_blank" rel="noopener">Nhắn Zalo</a>
+        </div>
+      </div>
+      <dl class="contact-list">
+        <div><dt>Điện thoại</dt><dd><a href="tel:0968161343">0968.161.343</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:nguyenthanhvan184@gmail.com">nguyenthanhvan184@gmail.com</a></dd></div>
+        <div><dt>Khu vực</dt><dd>Phú Thọ, làm việc từ xa toàn quốc</dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Nguyễn Thanh Văn</p>
+    <p>Trang này không có biểu mẫu thu thập thông tin và không dùng công cụ theo dõi quảng cáo.</p>
+  </div>
+  <a class="fab" href="https://zalo.me/0968161343" target="_blank" rel="noopener" aria-label="Nhắn Zalo cho Nguyễn Thanh Văn">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.5c-4.97 0-9 3.36-9 7.5 0 2.37 1.32 4.48 3.38 5.85L5.5 20.5l4.13-2.07c.76.16 1.55.24 2.37.24 4.97 0 9-3.36 9-7.5S16.97 3.5 12 3.5z"/></svg>
+    <span>Zalo</span>
+  </a>
+</footer>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Nguyễn Thanh Văn",
-  "jobTitle": "Trưởng phòng HC-KH",
-  "worksFor": { "@type": "Organization", "name": "Toyota Phú Thọ" },
   "url": "https://nguyenthanhvan.com.vn/",
   "image": "https://nguyenthanhvan.com.vn/img/avatar.jpg",
-  "email": "nguyenthanhvan184@gmail.com",
-  "telephone": "+84968161343",
-  "address": { "@type": "PostalAddress", "addressRegion": "Phú Thọ", "addressCountry": "VN" },
-  "knowsAbout": ["Tự động hóa quy trình", "AI ứng dụng", "Phát triển web app (React, Supabase)", "Dashboard & phân tích dữ liệu", "Python", "Payroll & C&B", "HR System", "ISO", "ERP cho SME", "CRM", "Vận hành doanh nghiệp"]
+  "description": "Chẩn đoán, xử lý rủi ro lương, BHXH, hợp đồng lao động cho SME. Đào tạo AI cho người làm hành chính – nhân sự – kế toán.",
+  "knowsAbout": ["Quản trị nhân sự", "Tính lương và C&B", "BHXH", "Tuân thủ pháp luật lao động", "Tự động hóa", "Ứng dụng AI"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Đại học Bách khoa Hà Nội" },
+  "address": { "@type": "PostalAddress", "addressRegion": "Phú Thọ", "addressCountry": "VN" }
 }
 </script>
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  root.classList.add('js');
 
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/avatar.jpg" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/sections.css">
-<link rel="stylesheet" href="css/animations.css">
-<link rel="stylesheet" href="css/effects.css">
-<link rel="stylesheet" href="css/themes.css">
-<link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
+  // Giao diện sáng/tối: lựa chọn chỉ lưu trên máy người xem (localStorage).
+  var KEY = 'ntv-theme';
+  var toggle = document.querySelector('.theme-toggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyTheme(light) {
+    if (light) { root.setAttribute('data-theme', 'light'); } else { root.removeAttribute('data-theme'); }
+    if (toggle) { toggle.setAttribute('aria-pressed', light ? 'true' : 'false'); }
+    if (themeMeta) { themeMeta.setAttribute('content', light ? '#f6f2ea' : '#0a1628'); }
+  }
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  applyTheme(saved === 'light');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var light = root.getAttribute('data-theme') !== 'light';
+      applyTheme(light);
+      try { localStorage.setItem(KEY, light ? 'light' : 'dark'); } catch (e) {}
+    });
+  }
 
-<!-- Cursor -->
-<div id="progress"></div>
-<div id="loader">
-  <div class="loader-logo">NTV</div>
-  <div class="loader-bar"></div>
-  <div class="loader-text">Đang tải...</div>
-</div>
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-<canvas id="particles"></canvas>
-<canvas id="spotlight"></canvas>
+  // Nút Zalo nổi: ẩn khi hero (đã có nút Zalo) còn trên màn hình, để không che dải bằng chứng.
+  var fab = document.querySelector('.fab');
+  var hero = document.querySelector('.hero');
+  if (fab && hero && 'IntersectionObserver' in window) {
+    var heroBox = hero.getBoundingClientRect();
+    fab.classList.toggle('is-hidden', heroBox.bottom > 0 && heroBox.top < window.innerHeight);
+    new IntersectionObserver(function (entries) {
+      fab.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }).observe(hero);
+  }
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">NTVăn</a>
-  <ul class="nav-links">
-    <li><a href="#about">Về tôi</a></li>
-    <li><a href="#services">Dịch vụ</a></li>
-    <li><a href="#testimonials">Đánh giá</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#experience">Chứng chỉ</a></li>
-    <li><a href="#projects">Dự án</a></li>
-    <li><a href="#why">Tại sao tôi</a></li>
-    <li><a href="#contact">Liên hệ</a></li>
-  </ul>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Mở menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="nav-mobile" id="nav-mobile" aria-hidden="true">
-  <ul>
-    <li><a href="#about" class="nav-mobile-link">Về tôi</a></li>
-    <li><a href="#services" class="nav-mobile-link">Dịch vụ</a></li>
-    <li><a href="#testimonials" class="nav-mobile-link">Đánh giá</a></li>
-    <li><a href="#blog" class="nav-mobile-link">Blog</a></li>
-    <li><a href="#experience" class="nav-mobile-link">Chứng chỉ</a></li>
-    <li><a href="#projects" class="nav-mobile-link">Dự án</a></li>
-    <li><a href="#why" class="nav-mobile-link">Tại sao tôi</a></li>
-    <li><a href="#contact" class="nav-mobile-link">Liên hệ</a></li>
-  </ul>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-orb-1"></div>
-  <div class="hero-orb-2"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="hero-content">
-    <div class="hero-left">
-      <div class="eyebrow"><span class="eyebrow-dot"></span> Quản trị · Tự động hóa · AI</div>
-      <h1>
-        Nguyễn
-        <span class="gold-text">Thanh Văn</span>
-      </h1>
-      <div class="hero-tagline">Người xây hệ thống — nơi HR gặp <em>tự động hóa &amp; AI</em>.</div>
-      <div class="hero-sub">Trưởng phòng HC-KH · Toyota Phú Thọ</div>
-      <p class="hero-desc">
-        Một người quản trị nhưng tự code, tự dựng web app và tự động hóa bằng AI.
-        Bắt đầu từ hệ thống tính lương — nơi tôi rút quy trình từ <strong>3 ngày xuống 3 giờ</strong>.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-gold"><span>Tư vấn payroll</span> <span>→</span></a>
-        <a href="#services" class="btn-outline">Xem dịch vụ</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="avatar-wrap">
-        <div class="avatar-ring"></div>
-        <div class="avatar-ring avatar-ring-2"></div>
-        <img class="avatar-img" src="img/avatar.jpg" alt="Nguyễn Thanh Văn" width="600" height="768" loading="eager" decoding="async">
-        <div class="avatar-badge">
-          <span class="avatar-badge-dot"></span>
-          Sẵn sàng tư vấn
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner stagger">
-    <div class="stat-item"><span class="stat-num" data-target="12">0</span><div class="stat-label">Năm kinh nghiệm +</div></div>
-    <div class="stat-item"><span class="stat-num" data-target="4">0</span><div class="stat-label">Lĩnh vực chuyên sâu</div></div>
-    <div class="stat-item"><span class="stat-num" data-target="5">0</span><div class="stat-label">Dự án hoàn thành +</div></div>
-    <div class="stat-item"><span class="stat-num" data-target="130">0</span><div class="stat-label">Nhân sự đang quản lý +</div></div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-bg-text">VĂN</div>
-  <div class="s-inner">
-    <div class="about-layout">
-      <div class="slide-left">
-        <div class="s-tag">Về tôi</div>
-        <h2>Thực chiến,<br><em>có hệ thống</em></h2>
-        <p>
-          Tôi là <strong style="color:var(--text-1);font-weight:500">Nguyễn Thanh Văn</strong>, Trưởng phòng Hành chính – Khách hàng tại Toyota Phú Thọ (IDMC Group). Hơn 12 năm kinh nghiệm biến HR từ bộ phận hành chính thành một chức năng kinh doanh thực sự — xây hệ thống, tối ưu quy trình và gắn kết con người với mục tiêu doanh nghiệp.
-        </p>
-        <div class="blockquote">
-          "Just because my path is different, doesn't mean I'm lost."
-        </div>
-      </div>
-      <div class="slide-right">
-        <div class="s-tag" style="margin-bottom:1.5rem">Chuyên môn</div>
-        <div class="about-skills-grid stagger">
-          <div class="skill-chip">
-            <span class="sc-icon">🤖</span>
-            <div class="sc-name">Tự động hóa & AI</div>
-            <div class="sc-desc">Python · AI agent · tự động hóa quy trình lặp tay</div>
-          </div>
-          <div class="skill-chip">
-            <span class="sc-icon">🧩</span>
-            <div class="sc-name">Hệ thống tự build</div>
-            <div class="sc-desc">Web app React/Supabase · dashboard dữ liệu thời gian thực</div>
-          </div>
-          <div class="skill-chip">
-            <span class="sc-icon">💰</span>
-            <div class="sc-name">Payroll & C&B</div>
-            <div class="sc-desc">Lương, BHXH, thuế TNCN — đúng luật, tự động</div>
-          </div>
-          <div class="skill-chip">
-            <span class="sc-icon">⚙️</span>
-            <div class="sc-name">HR System & ISO</div>
-            <div class="sc-desc">Hệ thống nhân sự, chuẩn hóa quy trình & tài liệu ISO</div>
-          </div>
-          <div class="skill-chip">
-            <span class="sc-icon">🤝</span>
-            <div class="sc-name">CRM / PRM</div>
-            <div class="sc-desc">Quản lý quan hệ khách hàng & đối tác chiến lược</div>
-          </div>
-          <div class="skill-chip">
-            <span class="sc-icon">📊</span>
-            <div class="sc-name">Dữ liệu & công cụ</div>
-            <div class="sc-desc">Dashboard, báo cáo tự động · Excel/VBA, SQL là công cụ</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="s-inner">
-    <div class="fade-up">
-      <div class="s-tag">Dịch vụ</div>
-      <h2>Tôi giúp được<br><em>điều gì cho bạn?</em></h2>
-    </div>
-    <div class="services-grid stagger">
-      <!-- 01 — CỬA CHÍNH -->
-      <div class="svc-card svc-primary">
-        <div class="svc-num">01</div>
-        <div class="svc-icon">💰</div>
-        <span class="svc-flag">Cửa chính</span>
-        <div class="svc-title">Payroll & C&amp;B — hệ thống tính lương tự động</div>
-        <p class="svc-desc">Đây là cửa chính của tôi. Xây hệ thống tính lương tự động, đúng Luật lao động, BHXH, thuế TNCN — từ bảng sản lượng/khoán đến bảng lương tài chính hoàn chỉnh. Một dự án thực tế đã rút quy trình từ <strong>3 ngày xuống còn 3 giờ</strong>, sai sót gần như bằng 0. Nhận tư vấn trực tiếp và qua kênh giới thiệu Kế toán – Nhân sự.</p>
-        <div class="svc-tags">
-          <span class="stag">Payroll</span>
-          <span class="stag">C&amp;B</span>
-          <span class="stag">BHXH</span>
-          <span class="stag">Thuế TNCN</span>
-          <span class="stag">Tự động hóa</span>
-          <span class="stag-blue stag">B2B</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- VÀ CẢ — các dịch vụ gom gọn -->
-    <div class="svc-more fade-up">
-      <div class="svc-more-head">Và cả những hệ thống khác tôi tự xây cho doanh nghiệp:</div>
-      <div class="svc-more-grid">
-        <div class="svc-more-item">
-          <div class="svc-more-icon">🧩</div>
-          <h4>ERP gọn nhẹ cho SME</h4>
-          <p>Tích hợp nhân sự, kế toán, bán hàng, kho trong một nền tảng. Chi phí ~10–20% so với ERP đóng gói, doanh nghiệp tự chủ vận hành.</p>
-        </div>
-        <div class="svc-more-item">
-          <div class="svc-more-icon">📋</div>
-          <h4>HR & ISO</h4>
-          <p>Quy chế, biểu mẫu, quy trình chuẩn ISO. Chuẩn hóa tài liệu hệ thống, sẵn sàng kiểm định và mở rộng quy mô.</p>
-        </div>
-        <div class="svc-more-item">
-          <div class="svc-more-icon">🏢</div>
-          <h4>Chuẩn hóa vận hành</h4>
-          <p>Tối ưu dòng chảy công việc, thiết lập KPI, tài liệu hóa quy trình cho doanh nghiệp đang tăng trưởng.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="s-inner">
-    <div class="fade-up">
-      <div class="s-tag">Khách hàng nói gì</div>
-      <h2>Những người đã<br><em>tin tưởng và hợp tác</em></h2>
-    </div>
-    <div class="testi-grid stagger">
-      <div class="testi-card">
-        <span class="testi-quote-icon">"</span>
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Anh Văn đã giúp chúng tôi xây dựng lại toàn bộ hệ thống tính lương từ đầu. Trước đây mất 3 ngày mỗi tháng, giờ chỉ cần 3 giờ. Sai sót gần như bằng 0, kế toán và nhân sự đều nhẹ nhõm hẳn.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">TH</div>
-          <div>
-            <div class="testi-name">Nguyễn Thị Hoa</div>
-            <div class="testi-role">Giám đốc Nhân sự · Doanh nghiệp sản xuất, Phú Thọ</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <span class="testi-quote-icon">"</span>
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Khóa học Excel + AI của anh Văn thay đổi hoàn toàn cách tôi làm việc. Trước đó tôi chỉ biết dùng hàm cơ bản, giờ tôi tự xây được dashboard và tự động hóa báo cáo tuần trong 30 phút.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">MT</div>
-          <div>
-            <div class="testi-name">Trần Minh Tuấn</div>
-            <div class="testi-role">Trưởng phòng Kinh doanh · Công ty dịch vụ</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <span class="testi-quote-icon">"</span>
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Hệ thống vận hành anh Văn thiết kế cho trung tâm chúng tôi rất bài bản. Từ quy trình tuyển sinh đến chăm sóc học viên đều có tài liệu rõ ràng. Nhân viên mới vào là có thể tự vận hành ngay.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">HL</div>
-          <div>
-            <div class="testi-name">Lê Thị Hằng</div>
-            <div class="testi-role">Giám đốc · Trung tâm tiếng Anh, Việt Trì</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA STRIP -->
-<div id="cta-strip">
-  <div class="cta-strip-inner fade-up">
-    <div class="cta-strip-tag">Bắt đầu ngay hôm nay</div>
-    <div class="cta-strip-title">Bạn đang gặp vấn đề<br><em>tương tự?</em></div>
-    <p class="cta-strip-sub">Dù là hệ thống lương rối rắm, Excel thủ công tốn thời gian hay quy trình chạy bằng trí nhớ — hãy nói với tôi, chúng ta sẽ tìm ra giải pháp.</p>
-    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
-      <a href="#contact" class="btn-gold"><span>Nói chuyện với tôi</span> <span>→</span></a>
-      <a href="#services" class="btn-outline">Xem dịch vụ</a>
-    </div>
-  </div>
-</div>
-
-<!-- WHY ME -->
-<section id="why">
-  <div class="s-inner">
-    <div class="why-layout">
-      <div class="why-sticky fade-up">
-        <div class="s-tag">Tại sao tôi?</div>
-        <h2>Khác biệt<br><em>thực chất</em></h2>
-        <p style="font-size:1rem;color:var(--text-2);line-height:1.8">
-          Không phải ai cũng từng ngồi ghế quản lý và tự tay giải quyết những vài toán này. Tôi đã từng — và tôi biết chính xác điều gì thực sự hiệu quả.
-        </p>
-      </div>
-      <ul class="why-list">
-        <li class="why-item fade-up">
-          <div class="w-num">1.</div>
-          <div class="w-body">
-            <h3>Quản trị thực chiến — và tự tay xây công cụ</h3>
-            <p>Tôi trực tiếp quản lý ~130 nhân sự, ra quyết định KPI và chịu trách nhiệm kết quả — đồng thời tự code, tự dựng web app, tự động hóa bằng AI. Không tư vấn từ ngoài nhìn vào, tôi giải bài toán từ bên trong.</p>
-          </div>
-        </li>
-        <li class="why-item fade-up">
-          <div class="w-num">2.</div>
-          <div class="w-body">
-            <h3>Giải pháp tối ưu cho SME Việt Nam</h3>
-            <p>Hiểu rõ đặc thù doanh nghiệp vừa nhỏ: nguồn lực có hạn, cần gọn nhẹ, triển khai nhanh và tự vận hành được ngay — không phụ thuộc vào người tư vấn mãi mãi.</p>
-          </div>
-        </li>
-        <li class="why-item fade-up">
-          <div class="w-num">3.</div>
-          <div class="w-body">
-            <h3>Giao hệ thống — không giao slide</h3>
-            <p>Mỗi dự án kết thúc bằng công cụ bạn dùng được ngay, tài liệu hướng dẫn rõ ràng — không phải một bản báo cáo đẹp rồi để lại trong hộc bàn.</p>
-          </div>
-        </li>
-        <li class="why-item fade-up">
-          <div class="w-num">4.</div>
-          <div class="w-body">
-            <h3>Tích hợp AI vào công việc thực tế</h3>
-            <p>Đang ứng dụng các công cụ AI hiện đại để tăng tốc và nâng chất đầu ra — từ phân tích dữ liệu, tự động hóa đến soạn thảo hệ thống tài liệu.</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-<!-- BLOG / INSIGHTS -->
-<section id="blog">
-  <div class="s-inner">
-    <div class="fade-up">
-      <div class="s-tag">Góc chia sẻ</div>
-      <h2>Kiến thức &<br><em>Góc nhìn thực chiến</em></h2>
-    </div>
-    <div class="blog-grid stagger">
-      <div class="blog-card">
-        <div class="blog-thumb blog-thumb--excel">⚙️</div>
-        <div class="blog-body">
-          <div class="blog-cat">Payroll · Tự động hóa</div>
-          <div class="blog-title">3 ngày xuống 3 giờ: tôi tự động hóa bảng lương sản xuất thế nào</div>
-          <p class="blog-excerpt">Không phải mẹo Excel. Là cách tổ chức dữ liệu đầu vào và để máy làm phần lặp lại — quy trình tôi đã áp dụng cho một nhà máy 250–300 người. <span class="blog-todo">[cần nội dung — viết đầy đủ]</span></p>
-          <a class="blog-tiktok" href="#" data-need="link" title="[Văn điền link TikTok]"><span class="bt-ic">▶</span> Xem video gốc trên TikTok <span class="blog-todo">[Văn điền link]</span></a>
-          <div class="blog-meta"><span>Payroll</span><span class="blog-dot"></span><span>5 phút đọc</span></div>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-thumb blog-thumb--ai">🤖</div>
-        <div class="blog-body">
-          <div class="blog-cat">AI · Tự build</div>
-          <div class="blog-title">Tôi dùng AI để tự build web app quản lý nội bộ — không cần thuê dev</div>
-          <p class="blog-excerpt">Một người quản trị vẫn có thể tự dựng công cụ chạy thật bằng React, Supabase và AI. Đây là cách tôi bắt đầu và những gì bạn cần biết trước khi làm. <span class="blog-todo">[cần nội dung — viết đầy đủ]</span></p>
-          <a class="blog-tiktok" href="#" data-need="link" title="[Văn điền link TikTok]"><span class="bt-ic">▶</span> Xem video gốc trên TikTok <span class="blog-todo">[Văn điền link]</span></a>
-          <div class="blog-meta"><span>AI Tools</span><span class="blog-dot"></span><span>7 phút đọc</span></div>
-        </div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-thumb blog-thumb--ops">🏢</div>
-        <div class="blog-body">
-          <div class="blog-cat">Vận hành</div>
-          <div class="blog-title">Doanh nghiệp 50 người vẫn vận hành bằng trí nhớ — và cái giá phải trả</div>
-          <p class="blog-excerpt">Khi người biết việc nghỉ, cả quy trình tê liệt. Đây là dấu hiệu nhận biết và 3 bước đầu tiên để thoát khỏi cái bẫy này. <span class="blog-todo">[cần nội dung — viết đầy đủ]</span></p>
-          <a class="blog-tiktok" href="#" data-need="link" title="[Văn điền link TikTok]"><span class="bt-ic">▶</span> Xem video gốc trên TikTok <span class="blog-todo">[Văn điền link]</span></a>
-          <div class="blog-meta"><span>Ops & Process</span><span class="blog-dot"></span><span>6 phút đọc</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTS -->
-<section id="experience">
-  <div class="s-inner">
-    <div class="fade-up">
-      <div class="s-tag">Bằng cấp & Chứng chỉ</div>
-      <h2>Nền tảng<br><em>được công nhận</em></h2>
-    </div>
-    <div class="certs-grid stagger" style="margin-top:3rem">
-
-      <div class="cert-card">
-        <div class="cert-icon">🎓</div>
-        <div>
-          <div class="cert-name">Kỹ sư — Đại học Bách khoa Hà Nội</div>
-          <div class="cert-org">Hanoi University of Science and Technology</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🔍</div>
-        <div>
-          <div class="cert-name">ISO Internal Auditor</div>
-          <div class="cert-org">Kiểm toán viên nội bộ ISO</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🏆</div>
-        <div>
-          <div class="cert-name">Professional Executive Director</div>
-          <div class="cert-org">PTI — Giám đốc điều hành chuyên nghiệp</div>
-        </div>
-      </div>
-
-      <div class="cert-card">
-        <div class="cert-icon">🚗</div>
-        <div>
-          <div class="cert-name">Toyota Certified Internal Trainer</div>
-          <div class="cert-org">Toyota — Đào tạo viên nội bộ được chứng nhận</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="s-inner">
-    <div class="fade-up">
-      <div class="s-tag">Dự án tiêu biểu</div>
-      <h2>Những gì tôi<br><em>đã thực sự làm</em></h2>
-    </div>
-    <div class="proj-grid stagger">
-
-      <!-- DỰ ÁN 1 -->
-      <div class="proj-card">
-        <div class="proj-header">
-          <div class="proj-icon">⚙️</div>
-          <span class="proj-type">Hệ thống</span>
-        </div>
-        <div class="proj-title">Tự động hóa hệ thống tính lương sản xuất</div>
-        <div class="proj-context">Doanh nghiệp sản xuất · 250–300 nhân sự · Phú Thọ</div>
-        <a class="proj-shot" data-shot="" data-caption="Workbook tính lương tự động — bảng điều khiển & kiểm tra dữ liệu" aria-label="Ảnh minh họa hệ thống tính lương">
-          <div class="proj-shot-empty"><span class="proj-shot-ic">🖼️</span><span class="proj-shot-note">[Văn: chèn screenshot công cụ tính lương — 1600×1000, ẩn số liệu nhạy cảm]</span></div>
-        </a>
-        <ul class="proj-desc proj-bullets">
-          <li>Chuyển bảng lương sản lượng / khoán → bảng lương tài chính hoàn chỉnh</li>
-          <li>Workbook VBA tự động xử lý, kiểm tra, xuất file</li>
-          <li>Đúng chuẩn Luật lao động, BHXH, thuế TNCN</li>
-          <li>Giảm stress cho nhân viên, sếp duyệt nhanh hơn</li>
-        </ul>
-        <div class="proj-results">
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">3 ngày</div>
-              <div class="proj-result-label">→ chỉ còn 3 giờ</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">100%</div>
-              <div class="proj-result-label">Độ chính xác</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">0</div>
-              <div class="proj-result-label">Lỗi sai sót</div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Excel VBA</span>
-          <span class="proj-tag">Payroll</span>
-          <span class="proj-tag">BHXH</span>
-          <span class="proj-tag">Luật lao động</span>
-        </div>
-      </div>
-
-      <!-- DỰ ÁN 2 -->
-      <div class="proj-card">
-        <div class="proj-header">
-          <div class="proj-icon">🤖</div>
-          <span class="proj-type">Khóa học</span>
-        </div>
-        <div class="proj-title">Làm báo cáo thông minh với AI</div>
-        <div class="proj-context">Dành cho quản lý cấp trung & nhân viên văn phòng</div>
-        <a class="proj-shot" data-shot="" data-caption="Trước/sau: báo cáo tái cấu trúc bằng AI" aria-label="Ảnh minh họa báo cáo với AI">
-          <div class="proj-shot-empty"><span class="proj-shot-ic">🖼️</span><span class="proj-shot-note">[Văn: chèn ảnh before/after báo cáo — 1600×1000, ẩn số liệu nhạy cảm]</span></div>
-        </a>
-        <ul class="proj-desc proj-bullets">
-          <li>Dùng AI phân tích insight của người nghe báo cáo</li>
-          <li>Tối ưu cấu trúc nội dung và tự động hóa phần lặp lại</li>
-          <li>Chuyển tư duy: "làm cho xong" → "báo cáo để tác động"</li>
-        </ul>
-        <div class="proj-results">
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">30–50%</div>
-              <div class="proj-result-label">Giảm thời gian báo cáo/tuần</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">AI</div>
-              <div class="proj-result-label">Phân tích insight người nghe</div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">AI Tools</span>
-          <span class="proj-tag">Báo cáo</span>
-          <span class="proj-tag">Storytelling</span>
-          <span class="proj-tag">Năng suất</span>
-        </div>
-      </div>
-
-      <!-- DỰ ÁN 3 -->
-      <div class="proj-card">
-        <div class="proj-header">
-          <div class="proj-icon">🧩</div>
-          <span class="proj-type">Hệ thống</span>
-        </div>
-        <div class="proj-title">ERP tự xây cho SME — chi phí tối thiểu</div>
-        <div class="proj-context">Doanh nghiệp dịch vụ & thương mại · 30–100 nhân sự</div>
-        <a class="proj-shot" data-shot="" data-caption="Giao diện ERP tự xây — module tích hợp" aria-label="Ảnh minh họa hệ thống ERP">
-          <div class="proj-shot-empty"><span class="proj-shot-ic">🖼️</span><span class="proj-shot-note">[Văn: chèn screenshot giao diện ERP — 1600×1000, ẩn số liệu nhạy cảm]</span></div>
-        </a>
-        <ul class="proj-desc proj-bullets">
-          <li>Tích hợp HR + Kế toán + Bán hàng + Kho vào một hệ thống duy nhất</li>
-          <li>Xây trên nền tảng mã nguồn mở, tùy biến theo quy trình thực tế</li>
-          <li>Doanh nghiệp tự vận hành — không khóa vendor, không chi phí license hàng năm</li>
-        </ul>
-        <div class="proj-results">
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">~10%</div>
-              <div class="proj-result-label">Chi phí so với ERP đóng gói</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">4 tuần</div>
-              <div class="proj-result-label">Triển khai pilot</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">Tự chủ</div>
-              <div class="proj-result-label">Không phụ thuộc nhà cung cấp</div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">ERP</span>
-          <span class="proj-tag">SME</span>
-          <span class="proj-tag">Tích hợp</span>
-          <span class="proj-tag">Mã nguồn mở</span>
-          <span class="proj-tag">Chi phí thấp</span>
-        </div>
-      </div>
-
-      <!-- TỰ BUILD 1 — KHUNG placeholder, Văn điền nội dung -->
-      <div class="proj-card proj-card--draft">
-        <div class="proj-header">
-          <div class="proj-icon">🤖</div>
-          <span class="proj-type">Tự build</span>
-        </div>
-        <div class="proj-title">[Văn: tên web app / công cụ nội bộ]</div>
-        <div class="proj-context">[Bối cảnh — vd: công cụ nội bộ HR/payroll · React + Supabase]</div>
-        <a class="proj-shot" data-shot="" data-caption="Web app / công cụ tự build" aria-label="Screenshot công cụ tự build">
-          <div class="proj-shot-empty"><span class="proj-shot-ic">🖼️</span><span class="proj-shot-note">[Văn: chèn screenshot web app/dashboard — 1600×1000, ẩn số liệu nhạy cảm]</span></div>
-        </a>
-        <ul class="proj-desc proj-bullets">
-          <li>[cần nội dung] Vấn đề bạn giải quyết là gì?</li>
-          <li>[cần nội dung] Tự build bằng công nghệ nào (Python · React · Supabase · AI)?</li>
-          <li>[cần nội dung] Kết quả đo được — chỉ dùng số thật</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="proj-tag">React</span>
-          <span class="proj-tag">Supabase</span>
-          <span class="proj-tag">AI</span>
-          <span class="proj-tag">[Văn thêm]</span>
-        </div>
-      </div>
-
-      <!-- TỰ BUILD 2 — KHUNG placeholder, Văn điền nội dung -->
-      <div class="proj-card proj-card--draft">
-        <div class="proj-header">
-          <div class="proj-icon">📊</div>
-          <span class="proj-type">Tự build</span>
-        </div>
-        <div class="proj-title">[Văn: tên dashboard / công cụ phân tích dữ liệu]</div>
-        <div class="proj-context">[Bối cảnh — vd: dashboard dữ liệu vận hành · Python + AI]</div>
-        <a class="proj-shot" data-shot="" data-caption="Dashboard dữ liệu tự build" aria-label="Screenshot dashboard dữ liệu">
-          <div class="proj-shot-empty"><span class="proj-shot-ic">🖼️</span><span class="proj-shot-note">[Văn: chèn screenshot dashboard — 1600×1000, ẩn số liệu nhạy cảm]</span></div>
-        </a>
-        <ul class="proj-desc proj-bullets">
-          <li>[cần nội dung] Dữ liệu gì, ai dùng, để ra quyết định nào?</li>
-          <li>[cần nội dung] Tự build bằng công nghệ nào?</li>
-          <li>[cần nội dung] Kết quả đo được — chỉ dùng số thật</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">Dữ liệu</span>
-          <span class="proj-tag">Dashboard</span>
-          <span class="proj-tag">[Văn thêm]</span>
-        </div>
-      </div>
-
-      <!-- DỰ ÁN 4 — FULL WIDTH -->
-      <div class="proj-card full">
-        <div class="proj-header">
-          <div class="proj-icon">🏫</div>
-          <span class="proj-type">Vận hành</span>
-        </div>
-        <div class="proj-title">Thiết lập hệ thống vận hành trung tâm tiếng Anh</div>
-        <div class="proj-context">Trung tâm giáo dục · 200 học viên/tháng</div>
-        <a class="proj-shot" data-shot="" data-caption="Hệ thống quy trình & tài liệu vận hành" aria-label="Ảnh minh họa hệ thống vận hành">
-          <div class="proj-shot-empty"><span class="proj-shot-ic">🖼️</span><span class="proj-shot-note">[Văn: chèn screenshot quy trình/biểu mẫu — 1600×1000, ẩn số liệu nhạy cảm]</span></div>
-        </a>
-        <ul class="proj-desc proj-bullets">
-          <li>Xây quy trình tuyển sinh, quản lý lớp, chăm sóc học viên</li>
-          <li>Hệ thống đánh giá nhân sự và báo cáo BGĐ</li>
-          <li>Từ vận hành bằng trí nhớ → hệ thống có thể nhân rộng</li>
-        </ul>
-        <div class="proj-results">
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">30</div>
-              <div class="proj-result-label">Nhân sự vận hành</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">200+</div>
-              <div class="proj-result-label">Học viên/tháng phục vụ</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">Hệ thống</div>
-              <div class="proj-result-label">Tự vận hành, có thể nhân rộng</div>
-            </div>
-          </div>
-          <div class="proj-result">
-            <div>
-              <div class="proj-result-num">ISO-ready</div>
-              <div class="proj-result-label">Tài liệu chuẩn hóa đầy đủ</div>
-            </div>
-          </div>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">Ops Design</span>
-          <span class="proj-tag">HR System</span>
-          <span class="proj-tag">CRM</span>
-          <span class="proj-tag">Quy trình</span>
-          <span class="proj-tag">Tài liệu hóa</span>
-          <span class="proj-tag">KPI</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-glow"></div>
-  <div class="s-inner">
-    <div class="contact-content fade-up">
-      <div class="s-tag" style="justify-content:center">Liên hệ</div>
-      <h2>Bắt đầu một<br><em>cuộc trò chuyện</em></h2>
-      <p class="contact-tagline">
-        Tôi luôn sẵn sàng hồi đáp mọi câu hỏi, mọi nhu cầu — dù lớn hay nhỏ, dù bạn đã rõ ràng hay còn đang mơ hồ.
-      </p>
-      <p class="contact-sub">Phản hồi trong vòng 24 giờ. Không cần chuẩn bị gì — chỉ cần nhắn tin.</p>
-
-      <div class="contact-ctas">
-        <a href="mailto:nguyenthanhvan184@gmail.com" class="btn-gold"><span>Gửi email</span></a>
-        <a href="https://zalo.me/0968161343" class="btn-outline">Nhắn Zalo</a>
-      </div>
-      <div class="contact-info">
-        <div class="ci-item">
-          <div class="ci-label">Email</div>
-          <div class="ci-value"><a href="mailto:nguyenthanhvan184@gmail.com">nguyenthanhvan184@gmail.com</a></div>
-        </div>
-        <div class="ci-item">
-          <div class="ci-label">Zalo / Phone</div>
-          <div class="ci-value"><a href="tel:0968161343">0968.161.343</a></div>
-        </div>
-        <div class="ci-item">
-          <div class="ci-label">Khu vực</div>
-          <div class="ci-value">Phú Thọ · Remote toàn quốc</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-copy">© 2026 Nguyễn Thanh Văn · All rights reserved</div>
-  <div class="foot-social">
-    <a href="#" class="fs-link" aria-label="TikTok" title="[Văn điền link TikTok]" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.01-2.82h-3.1v12.4a2.59 2.59 0 1 1-1.84-2.48V9.74a5.62 5.62 0 1 0 4.94 5.57V9.01a7.34 7.34 0 0 0 4.29 1.37V7.28a4.28 4.28 0 0 1-2.28-1.46z"/></svg>
-    </a>
-    <a href="#" class="fs-link" aria-label="Facebook" title="[Văn điền link Facebook]" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
-    </a>
-    <a href="#" class="fs-link" aria-label="LinkedIn" title="[Văn điền link LinkedIn]" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-    </a>
-  </div>
-  <div class="foot-links">
-    <a href="#hero">Trang chủ</a>
-    <a href="#services">Dịch vụ</a>
-    <a href="#contact">Liên hệ</a>
-    <a href="#hero">↑ Đầu trang</a>
-  </div>
-</footer>
-
-
-<!-- THEME TOGGLE -->
-<button id="theme-toggle" title="Đổi theme">☀️</button>
-
-<!-- BACK TO TOP -->
-<button id="back-top" title="Lên đầu trang">↑</button>
-
-<!-- ZALO WIDGET -->
-<div id="zalo-widget">
-  <div class="zalo-tooltip">Nhắn Zalo ngay</div>
-  <a href="https://zalo.me/0968161343" target="_blank" rel="noopener" class="zalo-btn" title="Chat Zalo" style="pointer-events:all">
-    <span style="font-size:1.5rem;line-height:1">💬</span>
-  </a>
-</div>
-
-<!-- LIGHTBOX (proof gallery) -->
-<div id="lightbox" aria-hidden="true">
-  <button id="lightbox-close" aria-label="Đóng">&times;</button>
-  <img id="lightbox-img" src="" alt="">
-  <div id="lightbox-cap"></div>
-</div>
-
-<script defer src="js/app.js"></script>
+  // Menu mobile (<details>): đóng khi chọn mục, bấm ra ngoài hoặc nhấn Esc.
+  var menu = document.querySelector('.nav-mobile');
+  if (menu) {
+    var closeMenu = function () { menu.removeAttribute('open'); };
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) { closeMenu(); } });
+    document.addEventListener('click', function (e) { if (menu.open && !menu.contains(e.target)) { closeMenu(); } });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.open) { closeMenu(); menu.querySelector('summary').focus(); }
+    });
+  }
+})();
+</script>
 </body>
 </html>
-
